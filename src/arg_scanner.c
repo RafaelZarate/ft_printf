@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/06 02:18:41 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/06 04:18:13 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/06 04:59:08 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ static	char	check_ids(char c)
 	char r;
 
 	i = -1;
+	/*
+	** DON'T FORGET TO FREE IDS MF
+	*/
 	ids = ft_strnew(13);
 	ids = "sSpDioOuUxUcC";
 	while (ids[++i])
@@ -26,11 +29,9 @@ static	char	check_ids(char c)
 		if (ids[i] == c)
 		{
 			r = ids[i];
-			free(ids);
 			return (r);
 		}
 	}
-	free(ids);
 	return (-1);
 }
 
