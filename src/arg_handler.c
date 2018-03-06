@@ -6,13 +6,20 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/06 01:47:44 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/06 01:48:31 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/06 04:26:15 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	arg_handler(char *fmt, int i, va_list ap)
+int	arg_handler(t_mst *args, va_list ap, int i)
 {
-	
+	char *s;
+
+	if (args->id[i] == 's')
+	{
+		s = va_arg(ap, char *);
+		ft_putstr(s);
+	}
+	return (ft_strlen(s));
 }
