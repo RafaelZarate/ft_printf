@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 21:41:23 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/06 04:26:27 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/07 06:50:19 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@
 
 typedef	struct	s_mst
 {
-	int		*n_chars;
+	char	**flags;
+	int		*mfw;
+	int		*precision;
+	int		*mod;
 	char	*id;
-	int		*flag;
-	int		**mods;
+	int		*n_chars;
 }				t_mst;
 
 int				ft_printf(const char *format, ...);
