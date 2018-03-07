@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/06 01:47:44 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/06 23:30:04 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/07 02:36:29 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ int	arg_handler(t_mst *args, va_list ap, int i)
 		ft_putstr(s);
 		return (ft_strlen(s));
 	}
-	// if (args->id[i] == 'S')
-	// {
-	// 	wchar_t *s;
+	if (args->id[i] == 'S')
+	{
+		wchar_t *s;
 		
-	// 	s = va_arg(ap, wchar_t *);
-	// 	ft_putstr(s);
-	// 	return (ft_strlen(s));
-	// }
+		s = va_arg(ap, wchar_t *);
+		ft_putstr_wc(s);
+		return (ft_strlen_wc(s));
+	}
 	else if (args->id[i] == 'i')
 	{
 		int n;

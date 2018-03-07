@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/06 02:18:41 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/06 06:14:56 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/07 04:01:13 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,31 @@ static	char	check_ids(char c)
 	return (-1);
 }
 
+/*
+ **	hh = 1
+ **	l = 2
+ **	ll = 3
+ **	j = 4
+ **	z = 5
+*/
+
+static	int	check_flags(int x, char *s)
+{
+	if (s[x] == 'h' && s[x + 1] == 'h')
+		return (1);
+	else if (s[x] == 'l')
+	{
+		if (s[x + 1] == 'l')
+			return 3;
+		return (2);
+	}
+	else if (s[x] == 'j')
+		return (4);
+	else if (s[x] == 'z')
+		return (5);
+	return (0);
+}
+
 void	arg_scanner(char *fmt, t_mst *args, int n)
 {
 	size_t	i;
@@ -59,7 +84,10 @@ void	arg_scanner(char *fmt, t_mst *args, int n)
 		{
 			x = i + 1;
 			while (check_ids(fmt[x]) == -1)
+			{
+				args->flag[i2] = check_flag(x, fmt);
 				x++;
+			}
 			args->id[i2] = check_ids(fmt[x]);
 			args->n_chars[i2] = x - i;
 			i2++;
