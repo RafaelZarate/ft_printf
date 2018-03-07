@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 22:12:08 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/06 18:17:54 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/06 23:31:05 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 int	main(void)
 {
-	int n = ft_printf("LOL %s LEL %s %i, %c", "JAJA", "JEJE", 1000, 110);
+	int n = ft_printf("LOL & %u\n", -45678);
+	int n2 = printf("LOL & %u\n", -45678);
 	ft_putchar('\n');
-	ft_putnbr(n);
+	printf("ft_printf: %i\tprintf: %i", n, n2);
 	return (1);
 }
