@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/06 02:18:41 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/07 08:28:19 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/08 10:26:28 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ static	int	check_flags(char *fmt, int x, t_mst *args, int i2)
 		x++;
 	}
 	args->flags[i2] = ft_strnew(x2);
-	while (--x2 >= 0)
-		args->flags[i2][x2] = fmt[x - x2];
+	while (--x2 > -1)
+		args->flags[i2][x2] = fmt[x - x2 - 1];
 	return(ft_strlen(args->flags[i2]));
 }
 
@@ -95,10 +95,10 @@ static	int	check_precision(char *fmt, int x, t_mst *args, int i2)
 	}
 	if (x2 > 0)
 	{
-		tmp = ft_strsub(fmt, x - x2 + 1, x2);
+		tmp = ft_strsub(fmt, x - x2, x2);
 		args->precision[i2] = ft_atoi(tmp);
 		free(tmp);
-		return (n_digits(args->precision[i2]));
+		return (x2 + 1);
 	}
 	else
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 22:12:29 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/07 08:05:29 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/08 10:31:45 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,9 @@ int	ft_printf(const char *fmt, ...)
 	va_end(ap);
 	free(args.n_chars);
 	free(args.id);
+	i = -1;
+	while (++i < i2)
+		free(args.flags[i]);
 	free(args.flags);
 	free(args.mod);
 	free(args.precision);
