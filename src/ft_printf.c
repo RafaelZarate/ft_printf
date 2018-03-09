@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 22:12:29 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/08 10:31:45 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/09 08:28:02 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	ft_printf(const char *fmt, ...)
 	int		i;
 	int		c;
 	int		i2;
+	t_uni	d_type;
 	
 	i = -1;
 	c = 0;
@@ -62,8 +63,7 @@ int	ft_printf(const char *fmt, ...)
 		}
 		else
 		{
-			//c += arg_handler(&args, ap, i2);
-			printf("ID: %i, FLAGS: %s, MFW: %i, PRE: %i, MOD: %i, ID: %c\n", i2, args.flags[i2], args.mfw[i2], args.precision[i2], args.mod[i2], args.id[i2]);
+			c += arg_handler(&args, ap, i2, &d_type);
 			i += args.n_chars[i2];
 			i2++;
 		}
