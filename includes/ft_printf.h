@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 21:41:23 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/09 09:32:20 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/10 02:18:01 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ typedef	union	u_mst
 	ssize_t						sst;
 	size_t						st;
 	char						*s;
-	wchar_t						*wct;
+    wchar_t						wct;
+	wchar_t						*wcts;
 	void						*p;
 }				t_uni;
 

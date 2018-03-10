@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/06 01:47:44 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/09 12:02:07 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/10 03:13:59 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,89 @@ int	arg_handler(t_mst *args, va_list ap, int i, t_uni *d_type)
 	else if (args->mod[i] == 0 && args->id[i] == 's')
 		d_type->s = va_arg(ap, char *);
 	else if (args->mod[i] == 0 && args->id[i] == 'S')
-		d_type->wct = va_arg(ap, wchar_t *);
+		d_type->wcts = va_arg(ap, wchar_t *);
 	else if (args->mod[i] == 0 && args->id[i] == 'p')
 		d_type->p = va_arg(ap, void *);
-	else if (args->mod[i] == 0 && args->id[i] == 'c')
-		d_type->c = va_arg(ap, int);
-	else if (args->mod[i] == 0 && ((args->id[i] == 'D') || (args->id[i] == 'O') || (args->id[i] == 'U') || (args->id[i] == 'C')))
+	else if (args->mod[i] == 0 && ((args->id[i] == 'D') || (args->id[i] == 'O') || (args->id[i] == 'U')))
 		d_type->lint = va_arg(ap, long);
+    else if (args->id[i] == 'C')
+        d_type->wct = va_arg(ap, wchar_t);
+    else if (args->mod[i] == 0 && ((args->id[i] == 'o') || (args->id[i] == 'u') || (args->id[i] == 'x') || (args->id[i] == 'X')))
+        d_type->uimt = va_arg(ap, uintmax_t);
+
+    // printing and returning n of chars printed
+    if (args->mod[i] == 0 && args->id[i] == 'c')
+    {
+		ft_putchar(d_type->c);
+        return (1);
+    }
+    else if ((args->id[i] == 'C') || (args->mod[i] == 2 && args->id[i] == 'c'))
+    {
+        ft_putchar_wc(d_type->wct);
+        return (1);
+    }
+    else if (args->mod[i] == 0 && args->id[i] == 's')
+    {
+		ft_putstr(d_type->s);
+        return (ft_strlen(d_type->s));
+    }
+    else if ((args->id[i] == 'S') || (args->mod[i] == 2 && args->id[i] == 's'))
+    {
+        ft_putstr_wc(d_type->wcts);
+        return (ft_strlen_wc(d_type->wcts));
+    }
+    else if (args->mod[i] == 0 && args->id[i] == 'i')
+    {
+		ft_putnbr(d_type->i);
+        return (n_digits(d_type->i));
+    }
+    else if (args->id[i] == 'o')
+	{
+		char *s;
+
+		s = uitoa_base(d_type->uimt, 8);
+		ft_putstr(s);
+		return (ft_strlen(s));
+	}
+	else if (args->id[i] == 'u')
+	{
+		char *s;
+
+		s = uitoa_base(d_type->uimt, 10);
+		ft_putstr(s);
+		return (ft_strlen(s));
+	}
+	else if (args->id[i] == 'x')
+	{
+		char *s;
+
+		s = uitoa_base(d_type->uimt, 16);
+		ft_putstr(s);
+		return (ft_strlen(s));
+	}
+    else if (args->id[i] == 'X')
+	{
+		char *s;
+		int i;
+
+		i = -1;
+		s = uitoa_base(d_type->uimt, 16);
+		while (++i < (int)ft_strlen(s))
+			s[i] = ft_toupper(s[i]);
+		ft_putstr(s);
+		return (ft_strlen(s));
+	}
+
+    // else if ((args->id[i] == 'I') || (args->mod[i] == 2 && args->id[i] == 'i'))
+    // {
+    //     ft_putnbr_li(d_type->lint);
+    //     return (n_digits(d_type->lint));
+    // }
+    // else if ((args->id[i] == 'D'))
+    // {
+    //     ft_putnbr_li(d_type->lint);
+    //     return (n_digits(d_type->lint));
+    // }
 	return (0);
 }
 
@@ -84,47 +160,47 @@ int	arg_handler(t_mst *args, va_list ap, int i, t_uni *d_type)
 // 		write(1, &c, 1);
 // 		return (1);
 // 	}
-// 	else if (args->id[i] == 'o')
-// 	{
-// 		unsigned int n;
-// 		char *s;
+	// else if (args->id[i] == 'o')
+	// {
+	// 	unsigned int n;
+	// 	char *s;
 
-// 		n = va_arg(ap, unsigned int);
-// 		s = uitoa_base(n, 8);
-// 		ft_putstr(s);
-// 		return (ft_strlen(s));
-// 	}
-// 	else if (args->id[i] == 'u')
-// 	{
-// 		unsigned int n;
+	// 	n = va_arg(ap, unsigned int);
+	// 	s = uitoa_base(n, 8);
+	// 	ft_putstr(s);
+	// 	return (ft_strlen(s));
+	// }
+	// else if (args->id[i] == 'u')
+	// {
+	// 	unsigned int n;
 
-// 		n = va_arg(ap, unsigned int);
-// 		ft_putnbr_ui(n);
-// 		return (6);
-// 	}
-// 	else if (args->id[i] == 'x')
-// 	{
-// 		unsigned int n;
-// 		char *s;
+	// 	n = va_arg(ap, unsigned int);
+	// 	ft_putnbr_ui(n);
+	// 	return (6);
+	// }
+	// else if (args->id[i] == 'x')
+	// {
+	// 	unsigned int n;
+	// 	char *s;
 
-// 		n = va_arg(ap, unsigned int);
-// 		s = uitoa_base(n, 16);
-// 		ft_putstr(s);
-// 		return (ft_strlen(s));
-// 	}
-// 	else if (args->id[i] == 'X')
-// 	{
-// 		unsigned int n;
-// 		char *s;
-// 		int i;
+	// 	n = va_arg(ap, unsigned int);
+	// 	s = uitoa_base(n, 16);
+	// 	ft_putstr(s);
+	// 	return (ft_strlen(s));
+	// }
+	// else if (args->id[i] == 'X')
+	// {
+	// 	unsigned int n;
+	// 	char *s;
+	// 	int i;
 
-// 		i = -1;
-// 		n = va_arg(ap, unsigned int);
-// 		s = uitoa_base(n, 16);
-// 		while (++i < (int)ft_strlen(s))
-// 			s[i] = ft_toupper(s[i]);
-// 		ft_putstr(s);
-// 		return (ft_strlen(s));
-// 	}
+	// 	i = -1;
+	// 	n = va_arg(ap, unsigned int);
+	// 	s = uitoa_base(n, 16);
+	// 	while (++i < (int)ft_strlen(s))
+	// 		s[i] = ft_toupper(s[i]);
+	// 	ft_putstr(s);
+	// 	return (ft_strlen(s));
+	// }
 // 	return (0);
 // }
