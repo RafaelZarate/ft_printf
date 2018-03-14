@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/06 01:47:44 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/10 07:08:48 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/14 13:20:51 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,73 +71,35 @@ int	arg_handler(t_mst *args, va_list ap, int i, t_uni *d_type)
         return (ft_strlen_wc(d_type->wcts));
     }
     else if (args->id[i] == 'i')
-    {
-		if (args->mod[i] == 0)
-		{
-			ft_putnbr(d_type->i);
-			return (n_digits(d_type->i));
-		}
-		else if (args->mod[i] == 1)
-		{
-			ft_putnbr(d_type->schar);
-			return (n_digits(d_type->schar));
-		}
-		// Needs some WORK, putnbr_li isn't working
-		else if (args->mod[i] == 2)
-		{
-			ft_putnbr_li(d_type->lint);
-			return (n_digits(d_type->lint));
-		}
-		else if (args->mod[i] == 4)
-		{
-			ft_putnbr(d_type->lint);
-			return (n_digits(d_type->lint));
-		}
-    }
-    else if (args->mod[i] == 0 && ((args->id[i] == 'o') || (args->id[i] == 'u') || (args->id[i] == 'x') || (args->id[i] == 'X')))
-	{
-		char *s;
+		return	(handle_i(args, i, d_type));
+    else if (args->id[i] == 'o')
+		return	(handle_o(args, i, d_type));
+	else if (args->id[i] == 'u')
+		return	(handle_u(args, i, d_type));
+	else if (args->id[i] == 'x' || args->id[i] == 'X')
+		return	(handle_x(args, i, d_type));
+	// else if (args->mod[i] == 1 && ((args->id[i] == 'o') || (args->id[i] == 'u') || (args->id[i] == 'x') || (args->id[i] == 'X')))
+	// {
+	// 	char *s;
 
-		if (args->id[i] == 'o')
-			s = uitoa_base(d_type->uimt, 8);
-		else if (args->id[i] == 'u')
-			s = uitoa_base(d_type->uimt, 10);
-		else if (args->id[i] == 'x')
-			s = uitoa_base(d_type->uimt, 16);
-		else if (args->id[i] == 'X')
-		{
-			int i;
+	// 	if (args->id[i] == 'o')
+	// 		s = uitoa_base(d_type->uchar, 8);
+	// 	else if (args->id[i] == 'u')
+	// 		s = uitoa_base(d_type->uchar, 10);
+	// 	else if (args->id[i] == 'x')
+	// 		s = uitoa_base(d_type->uchar, 16);
+	// 	else if (args->id[i] == 'X')
+	// 	{
+	// 		int i;
 
-			i = -1;
-			s = uitoa_base(d_type->uimt, 16);
-			while (++i < (int)ft_strlen(s))
-				s[i] = ft_toupper(s[i]);
-		}
-		ft_putstr(s);
-		return (ft_strlen(s));
-	}
-	else if (args->mod[i] == 1 && ((args->id[i] == 'o') || (args->id[i] == 'u') || (args->id[i] == 'x') || (args->id[i] == 'X')))
-	{
-		char *s;
-
-		if (args->id[i] == 'o')
-			s = uitoa_base(d_type->uchar, 8);
-		else if (args->id[i] == 'u')
-			s = uitoa_base(d_type->uchar, 10);
-		else if (args->id[i] == 'x')
-			s = uitoa_base(d_type->uchar, 16);
-		else if (args->id[i] == 'X')
-		{
-			int i;
-
-			i = -1;
-			s = uitoa_base(d_type->uchar, 16);
-			while (++i < (int)ft_strlen(s))
-				s[i] = ft_toupper(s[i]);
-		}
-		ft_putstr(s);
-		return (ft_strlen(s));
-	}
+	// 		i = -1;
+	// 		s = uitoa_base(d_type->uchar, 16);
+	// 		while (++i < (int)ft_strlen(s))
+	// 			s[i] = ft_toupper(s[i]);
+	// 	}
+	// 	ft_putstr(s);
+	// 	return (ft_strlen(s));
+	// }
 	
     // else if ((args->id[i] == 'I') || (args->mod[i] == 2 && args->id[i] == 'i'))
     // {

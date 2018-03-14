@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utilities_1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/05 22:12:08 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/14 13:17:59 by rzarate          ###   ########.fr       */
+/*   Created: 2018/03/14 12:23:37 by rzarate           #+#    #+#             */
+/*   Updated: 2018/03/14 12:56:21 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "../includes/ft_printf.h"
 
-int	main(void)
+int	count_args(char *fmt)
 {
-	unsigned char i = 17;
+	size_t i;
+	int	c;
 
-	int n = ft_printf("%hho, %hhu, %hhx, %hhX\n", i, i, i, i);
-	int n2 = printf("%hho, %hhu, %hhx, %hhX\n", i, i, i, i);
-    
-
-	printf("%d, %d", n, n2);
-	return (1);
+	i = -1;
+	c = 0;
+	while (++i < ft_strlen(fmt) - 1)
+	{
+		if (fmt[i] == '%' && fmt[i + 1] != '%')
+			c++;
+	}
+	return (c);
 }
+
