@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:33:39 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/14 13:14:46 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/14 13:38:38 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,15 +76,15 @@ int	handle_x(t_mst *args, int i, t_uni *d_type)
 	}
 	else if (args->id[i] == 'X')
 	{
-		int i;
+		int x;
 
-		i = -1;
+		x = -1;
 		if (args->mod[i] == 0)
 			s = uitoa_base(d_type->i, 16);
 		else if (args->mod[i] == 1)
 			s = uitoa_base(d_type->uchar, 16);
-		while (++i < (int)ft_strlen(s))
-			s[i] = ft_toupper(s[i]);
+		while (++x < (int)ft_strlen(s))
+			s[x] = ft_toupper(s[x]);
 	}
 	ft_putstr(s);
 	return (ft_strlen(s));
