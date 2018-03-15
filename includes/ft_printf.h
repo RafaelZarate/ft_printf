@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 21:41:23 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/14 13:11:17 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/14 20:17:45 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,9 @@ int				handle_i(t_mst *args, int i, t_uni *d_type);
 int				handle_o(t_mst *args, int i, t_uni *d_type);
 int				handle_u(t_mst *args, int i, t_uni *d_type);
 int				handle_x(t_mst *args, int i, t_uni *d_type);
+int				handle_c(t_mst *args, int i, t_uni *d_type);
+int				handle_s(t_mst *args, int i, t_uni *d_type);
+// int				handle_p(t_mst *args, int i, t_uni *d_type);
 
 /* UTILITIES */
 int				count_args(char *fmt);

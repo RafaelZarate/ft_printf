@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 22:12:08 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/14 13:38:57 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/14 20:22:44 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	main(void)
 {
-	unsigned char i = 157;
+	int i = 111;
 
-	int n = ft_printf("%hho, %hhu, %hhx, %hhX\n", i, i, i, i);
-	int n2 = printf("%hho, %hhu, %hhx, %hhX\n", i, i, i, i);
+	int n = ft_printf("%c\n", i);
+	int n2 = printf("%c\n", i);
     
 
 	printf("%d, %d", n, n2);
