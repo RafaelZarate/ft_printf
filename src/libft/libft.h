@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/19 10:26:57 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/14 20:41:59 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/15 02:23:16 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int					ft_isdigit(int c);
 int					ft_isalnum(int c);
 int					ft_isascii(int c);
 int					ft_isprint(int c);
+void				ft_strtoupper(char **s);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);

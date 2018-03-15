@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/06 01:47:44 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/14 20:37:29 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/15 02:28:25 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	arg_handler(t_mst *args, va_list ap, int i, t_uni *d_type)
 		return	(handle_c(args, i, d_type));
     else if (args->id[i] == 's' || args->id[i] == 'S')
 		return	(handle_s(args, i, d_type));
-    else if (args->id[i] == 'i')
+    else if (args->id[i] == 'i' || args->id[i] == 'D')
 		return	(handle_i(args, i, d_type));
     else if (args->id[i] == 'o')
 		return	(handle_o(args, i, d_type));

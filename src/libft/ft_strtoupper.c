@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strtoupper.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/05 22:12:08 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/15 02:31:56 by rzarate          ###   ########.fr       */
+/*   Created: 2018/03/15 01:45:26 by rzarate           #+#    #+#             */
+/*   Updated: 2018/03/15 02:22:52 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "libft.h"
 
-int	main(void)
+void	ft_strtoupper(char **s)
 {
-	long i = 115466231122234441;
-	int i2 = 2314;
-	char *s = "WTF";
-
-	int n = ft_printf("%li %D %s\n", i, i2, s);
-	int n2 = printf("%li %D %s\n", i, i2, s);
-
-	printf("%d, %d", n, n2);
-	return (1);
+	size_t i;
+	char	*tmp;
+	char *str;
+	
+	str = *s;
+	tmp = ft_strnew(ft_strlen(str));
+	i = -1;
+	while (str[++i])
+	{
+		if (ft_islower(str[i]))
+			tmp[i] = str[i] - 32;
+		else
+			tmp[i] = str[i];
+	}
+	*s = tmp;
 }
