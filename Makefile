@@ -1,13 +1,11 @@
 MAKE = make -C
-NAME = printf
+NAME = libftprintf.a
 LIB = src/libft/
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -c
 CC = clang
 
 #When compiling. you need to add your .a lib
-CFILES = $(LIB)/libft.a \
-        main.c \
-		src/ft_printf.c \
+CFILES = src/ft_printf.c \
         src/arg_scanner.c \
         src/scanners.c \
 		src/handlers.c \
@@ -26,7 +24,9 @@ all: $(NAME)
 
 $(NAME):
 	@$(LIBM)
-	@$(CC) $(CFLAGS) -I. -o $(NAME) $(CFILES)
+	@$(CC) $(CFLAGS) $(CFILES)
+	@cp src/libft/libft.a $(NAME)
+	@ar rcs $(NAME) *.o
 	@echo "PRINTF: Successfull compilation"
 	
 
