@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:19:41 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/14 12:20:15 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/15 04:26:15 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,20 @@ int	check_flags(char *fmt, int x, t_mst *args, int i2)
 	x2 = 0;
 	while (fmt[x] == '#' || fmt[x] == '0' || fmt[x] == '-' || fmt[x] == '+' || fmt[x] == ' ')
 	{
+		if (fmt[x] == '#')
+			args->hash[i2] = 1;
+		else if (fmt[x] == '0')
+			args->zero[i2] = 1;
+		else if (fmt[x] == '-')
+			args->minus[i2] = 1;
+		else if (fmt[x] == '+')
+			args->plus[i2] = 1;
+		else if (fmt[x] == ' ')
+			args->space[i2] = 1;
 		x2++;
 		x++;
 	}
-	args->flags[i2] = ft_strnew(x2);
-	while (--x2 > -1)
-		args->flags[i2][x2] = fmt[x - x2 - 1];
-	return(ft_strlen(args->flags[i2]));
+	return(x2);
 }
 
 int	check_mfw(char *fmt, int x, t_mst *args, int i2)

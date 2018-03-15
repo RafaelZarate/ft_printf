@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:33:39 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/15 02:29:09 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/15 05:56:18 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,51 @@
 
 int	handle_i(t_mst *args, int i, t_uni *d_type)
 {
+	char *s;
+
 	if (args->mod[i] == 0)
-	{
-		ft_putnbr(d_type->i);
-		return (n_digits(d_type->i));
-	}
+		s = ft_itoa(d_type->i);
 	else if (args->mod[i] == 1)
-	{
-		ft_putnbr(d_type->schar);
-		return (n_digits(d_type->schar));
-	}
+		s = ft_itoa(d_type->schar);
 	else if (args->mod[i] == 2 || (args->id[i] == 'D'))
-	{
-		ft_putnbr(d_type->lint);
-		return (n_digits(d_type->lint));
-	}
+		s = ft_itoa(d_type->lint);
 	else if (args->mod[i] == 3)
-	{
-		ft_putnbr(d_type->llint);
-		return (n_digits(d_type->llint));
-	}
+		s = ft_itoa(d_type->llint);
 	else if (args->mod[i] == 4)
-	{
-		ft_putnbr(d_type->imt);
-		return (n_digits(d_type->imt));
-	}
+		s = ft_itoa(d_type->imt);
 	//mod 5 might be missing
-	return (0);
+
+	handle_mfw(args, i, &s);
+
+	/*POSSIBLE FLAGS*/
+	if (args->plus[i] == 1 && d_type->imt > -1)
+	{
+		if (args->mfw == 0)
+			s = ft_strjoin("+", s);
+		else
+		{
+			if (args->zero[0] == 1)
+				s[0] = '+';
+			else
+			{
+				int x;
+
+				x = 0;
+				while (!ft_isdigit(s[x]))
+					x++;
+				s[--x] = '+';
+			}
+		}
+	}
+	else if (args->space[i] == 1 && d_type->imt > -1)
+	{
+		if (args->mfw == 0)
+			s = ft_strjoin(" ", s);
+		else
+			s[0] = ' ';
+	}
+	ft_putstr(s);
+	return (ft_strlen(s));
 }
 
 int	handle_o(t_mst *args, int i, t_uni *d_type)
@@ -59,6 +77,11 @@ int	handle_o(t_mst *args, int i, t_uni *d_type)
 		s = uitoa_base(d_type->uchar, 8);
 	else if (args->mod[i] == 5)
 		s = uitoa_base(d_type->uchar, 8);
+	
+	/*POSSIBLE FLAGS*/
+	if (args->hash[i] == 1)
+			s = ft_strjoin("0", s);
+	handle_mfw(args, i, &s);
 	ft_putstr(s);
 	return (ft_strlen(s));
 }
@@ -66,6 +89,7 @@ int	handle_o(t_mst *args, int i, t_uni *d_type)
 int	handle_u(t_mst *args, int i, t_uni *d_type)
 {
 	char *s;
+	int		n;
 
 	if (args->mod[i] == 0)
 		s = uitoa_base(d_type->i, 10);
@@ -79,8 +103,12 @@ int	handle_u(t_mst *args, int i, t_uni *d_type)
 		s = uitoa_base(d_type->uchar, 10);
 	else if (args->mod[i] == 5)
 		s = uitoa_base(d_type->uchar, 10);
+	
+	handle_mfw(args, i, &s);
 	ft_putstr(s);
-	return (ft_strlen(s));
+	n = ft_strlen(s);
+	free(s);
+	return (n);
 }
 
 int	handle_x(t_mst *args, int i, t_uni *d_type)
@@ -100,8 +128,15 @@ int	handle_x(t_mst *args, int i, t_uni *d_type)
 		s = uitoa_base(d_type->uchar, 16);
 	else if (args->mod[i] == 5)
 		s = uitoa_base(d_type->uchar, 16);
+
+	/*POSSIBLE FLAGS*/
+	if (args->hash[i] == 1)
+			s = ft_strjoin("0x", s);
+	
 	if (args->id[i] == 'X')
 		ft_strtoupper(&s);
+	
+	handle_mfw(args, i, &s);
 	ft_putstr(s);
 	n = ft_strlen(s);
 	free(s);
@@ -110,27 +145,37 @@ int	handle_x(t_mst *args, int i, t_uni *d_type)
 
 int	handle_c(t_mst *args, int i, t_uni *d_type)
 {
+	char	*s;
+	int		n;
+	
+	s = ft_strnew(1);
 	if (args->mod[i] == 0 && args->id[i] == 'c')
-		ft_putchar(d_type->c);
+		s[0] = d_type->c;
 	if ((args->mod[i] == 0 && args->id[i] == 'C') || (args->mod[i] == 2 && args->id[i] == 'c'))
-		ft_putchar_wc(d_type->wct);
-	// AN ERROR SHOULD BE PROMPTED IF mod isn't 0
-	return (1);
+		s[0] = (char)d_type->wct;
+
+	handle_mfw(args, i, &s);
+	ft_putstr(s);
+	n = ft_strlen(s);
+	free(s);
+	return (n);
 }
 
 int	handle_s(t_mst *args, int i, t_uni *d_type)
 {
+	char	*s;
+	int		n;
+	
 	if (args->mod[i] == 0 && args->id[i] == 's')
-	{
-		ft_putstr(d_type->s);
-        return (ft_strlen(d_type->s));
-	}
+		s = d_type->s;
 	if ((args->mod[i] == 0 && args->id[i] == 'S') || (args->mod[i] == 2 && args->id[i] == 's'))
-	{
-		ft_putstr_wc(d_type->wcts);
-        return (ft_strlen_wc(d_type->wcts));
-	}
-	return (1);
+		s = (char *)d_type->wcts;
+
+	handle_mfw(args, i, &s);
+	ft_putstr(s);
+	n = ft_strlen(s);
+	free(s);
+	return (n);
 }
 
 // int	handle_p(t_mst *args, int i, t_uni *d_type)

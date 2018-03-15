@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 22:12:08 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/15 02:31:56 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/15 05:57:04 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 int	main(void)
 {
-	long i = 115466231122234441;
-	int i2 = 2314;
-	char *s = "WTF";
+	int i = 345643;
+	int c = 110;
+	char *s = "JEJETL";
+	// char *s = "TEST";
 
-	int n = ft_printf("%li %D %s\n", i, i2, s);
-	int n2 = printf("%li %D %s\n", i, i2, s);
+	int n2 = printf("PRINTF: %+10i, %10c, %#-14x %15s\n", i, c, i, s);
+	int n = ft_printf("FT_PRI: %+10i, %10c, %#-14x %15s\n", i, c, i, s);
 
 	printf("%d, %d", n, n2);
 	return (1);

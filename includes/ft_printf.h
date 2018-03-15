@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 21:41:23 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/14 20:17:45 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/15 05:01:52 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,11 @@ typedef	union	u_mst
 
 typedef	struct	s_mst
 {
-	char	**flags;
+	int 	*hash;
+	int 	*zero;
+	int 	*minus;
+	int 	*plus;
+	int 	*space;
 	int		*mfw;
 	int		*precision;
 	int		*mod;
@@ -69,5 +73,7 @@ int				handle_s(t_mst *args, int i, t_uni *d_type);
 
 /* UTILITIES */
 int				count_args(char *fmt);
+void			handle_mfw(t_mst *args, int i, char **s);
+
 
 #endif

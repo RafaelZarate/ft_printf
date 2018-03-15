@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/06 02:18:41 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/14 12:27:54 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/15 04:23:09 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,11 @@ void	arg_scanner(char *fmt, t_mst *args, int n)
 
 	i = -1;
 	i2 = 0;
-	args->flags = (char **)ft_memalloc(sizeof(char *) *n);
+	args->hash = (int *)ft_memalloc(sizeof(int) * n);
+	args->zero = (int *)ft_memalloc(sizeof(int) * n);
+	args->minus = (int *)ft_memalloc(sizeof(int) * n);
+	args->plus = (int *)ft_memalloc(sizeof(int) * n);
+	args->space = (int *)ft_memalloc(sizeof(int) * n);
 	args->mfw = (int *)ft_memalloc(sizeof(int) * n);
 	args->precision = (int *)ft_memalloc(sizeof(int) * n);
 	args->mod = (int *)ft_memalloc(sizeof(int) *n);
