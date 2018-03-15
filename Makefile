@@ -6,7 +6,6 @@ CC = clang
 
 #When compiling. you need to add your .a lib
 CFILES = $(LIB)/libft.a \
-        main.c \
 		src/ft_printf.c \
         src/arg_scanner.c \
         src/scanners.c \
@@ -26,7 +25,7 @@ all: $(NAME)
 
 $(NAME):
 	@$(LIBM)
-	@$(CC) $(CFLAGS) -I. -o $(NAME) $(CFILES)
+	@$(CC) $(CFLAGS) $(CFILES)
 	@echo "PRINTF: Successfull compilation"
 	
 
