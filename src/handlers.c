@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:33:39 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/14 20:46:37 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/15 01:42:25 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,14 @@ int	handle_u(t_mst *args, int i, t_uni *d_type)
 	if (args->mod[i] == 0)
 		s = uitoa_base(d_type->i, 10);
 	else if (args->mod[i] == 1)
+		s = uitoa_base(d_type->uchar, 10);
+	else if (args->mod[i] == 2)
+		s = uitoa_base(d_type->ulint, 10);
+	else if (args->mod[i] == 3)
+		s = uitoa_base(d_type->ullint, 10);
+	else if (args->mod[i] == 4)
+		s = uitoa_base(d_type->uchar, 10);
+	else if (args->mod[i] == 5)
 		s = uitoa_base(d_type->uchar, 10);
 	ft_putstr(s);
 	return (ft_strlen(s));
