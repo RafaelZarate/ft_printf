@@ -32,12 +32,12 @@ $(NAME):
 
 clean:
 	@$(LIBC)
-	@/bin/rm -f $(OBJECTS) printf:.o
+	@/bin/rm -f *.o
 	@echo "PRINTF: Removed .o files"
 
-fclean:
+fclean: clean
 	@$(LIBF)
-	@/bin/rm -f $(OBJECTS) $(NAME)
+	@/bin/rm -f $(OBJECTS) $(NAME) *.a
 	@echo "PRINTF: Removed exacutable & .o files"
 
 re: fclean all

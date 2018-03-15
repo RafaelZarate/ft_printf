@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:19:41 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/15 04:26:15 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/15 08:46:54 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	check_ids(char c)
 {
-	char ids[14];
+	char ids[15];
 	int i;
 
 	i = -1;
@@ -31,7 +31,8 @@ char	check_ids(char c)
 	ids[10] = 'X';
 	ids[11] = 'c';
 	ids[12] = 'C';
-	ids[13] = '\0';
+	ids[13] = 'd';
+	ids[14] = '\0';
 	while (ids[++i])
 	{
 		if (ids[i] == c)
