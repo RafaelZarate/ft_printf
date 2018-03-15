@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 21:41:23 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/15 05:01:52 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/15 07:53:14 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 typedef	union	u_mst
 {
 	int							i;
+	unsigned	int				ui;
 	char						c;
 	signed	char				schar;
 	unsigned	char			uchar;
@@ -71,9 +72,13 @@ int				handle_c(t_mst *args, int i, t_uni *d_type);
 int				handle_s(t_mst *args, int i, t_uni *d_type);
 // int				handle_p(t_mst *args, int i, t_uni *d_type);
 
+void			handle_mfw(t_mst *args, int i, char **s);
+void			handle_mfw_i(t_mst *args, int i, char **s, int neg);
+void			handle_flags_i(t_mst *args, int i, char **s, int len);
+void			handle_plus_i(t_mst *args, char **s, int len);
+void			handle_space_i(t_mst *args, char **s, int i);
+
 /* UTILITIES */
 int				count_args(char *fmt);
-void			handle_mfw(t_mst *args, int i, char **s);
-
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 22:12:08 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/15 05:57:04 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/15 07:59:10 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 
 int	main(void)
 {
-	int i = 345643;
-	int c = 110;
-	char *s = "JEJETL";
-	// char *s = "TEST";
+	// unsigned int i = -114;
+	char *s = "TEST";
 
-	int n2 = printf("PRINTF: %+10i, %10c, %#-14x %15s\n", i, c, i, s);
-	int n = ft_printf("FT_PRI: %+10i, %10c, %#-14x %15s\n", i, c, i, s);
+	int n2 = printf("PRINTF: %s %10s %-10s.\n", s, s, s);
+	int n = ft_printf("FT_PRI: %s %10s %-10s.\n", s, s, s);
 
 	printf("%d, %d", n, n2);
 	return (1);

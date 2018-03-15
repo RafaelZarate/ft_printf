@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:33:39 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/15 05:56:18 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/15 07:59:32 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int	handle_i(t_mst *args, int i, t_uni *d_type)
 {
 	char *s;
+	int		neg;
+	int		len;
 
 	if (args->mod[i] == 0)
 		s = ft_itoa(d_type->i);
@@ -24,35 +26,19 @@ int	handle_i(t_mst *args, int i, t_uni *d_type)
 		s = ft_itoa(d_type->lint);
 	else if (args->mod[i] == 3)
 		s = ft_itoa(d_type->llint);
-	else if (args->mod[i] == 4)
+	else //mod ==4
 		s = ft_itoa(d_type->imt);
 	//mod 5 might be missing
-
-	handle_mfw(args, i, &s);
+	neg = (s[0] == '-') ? 1 : 0;
+	len = args->mfw[i] - (int)ft_strlen(s);
+	handle_mfw_i(args, i, &s, neg);
 
 	/*POSSIBLE FLAGS*/
-	if (args->plus[i] == 1 && d_type->imt > -1)
+	if (args->plus[i] == 1 && neg == 0)
+		handle_plus_i(args, &s, len);
+	else if (args->space[i] == 1 && d_type->imt >= 0)
 	{
-		if (args->mfw == 0)
-			s = ft_strjoin("+", s);
-		else
-		{
-			if (args->zero[0] == 1)
-				s[0] = '+';
-			else
-			{
-				int x;
-
-				x = 0;
-				while (!ft_isdigit(s[x]))
-					x++;
-				s[--x] = '+';
-			}
-		}
-	}
-	else if (args->space[i] == 1 && d_type->imt > -1)
-	{
-		if (args->mfw == 0)
+		if (args->mfw[i] == 0)
 			s = ft_strjoin(" ", s);
 		else
 			s[0] = ' ';
@@ -66,7 +52,7 @@ int	handle_o(t_mst *args, int i, t_uni *d_type)
 	char *s;
 
 	if (args->mod[i] == 0)
-		s = uitoa_base(d_type->i, 8);
+		s = uitoa_base(d_type->ui, 8);
 	else if (args->mod[i] == 1)
 		s = uitoa_base(d_type->uchar, 8);
 	else if (args->mod[i] == 2)
@@ -92,7 +78,7 @@ int	handle_u(t_mst *args, int i, t_uni *d_type)
 	int		n;
 
 	if (args->mod[i] == 0)
-		s = uitoa_base(d_type->i, 10);
+		s = uitoa_base(d_type->ui, 10);
 	else if (args->mod[i] == 1)
 		s = uitoa_base(d_type->uchar, 10);
 	else if (args->mod[i] == 2)
@@ -117,7 +103,7 @@ int	handle_x(t_mst *args, int i, t_uni *d_type)
 	int n;
 
 	if (args->mod[i] == 0)
-		s = uitoa_base(d_type->i, 16);
+		s = uitoa_base(d_type->ui, 16);
 	else if (args->mod[i] == 1)
 		s = uitoa_base(d_type->uchar, 16);
 	else if (args->mod[i] == 2)
@@ -174,7 +160,6 @@ int	handle_s(t_mst *args, int i, t_uni *d_type)
 	handle_mfw(args, i, &s);
 	ft_putstr(s);
 	n = ft_strlen(s);
-	free(s);
 	return (n);
 }
 
