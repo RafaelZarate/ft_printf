@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/06 01:47:44 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/14 20:28:48 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/14 20:37:29 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,5 @@ int	arg_handler(t_mst *args, va_list ap, int i, t_uni *d_type)
 	// p Isn't ready yet
 	// else if (args->id[i] == 'p')
 	// 	return	(handle_p(args, i, d_type));
+	return (0);
 }

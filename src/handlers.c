@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:33:39 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/14 20:20:32 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/14 20:46:37 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,22 @@ int	handle_i(t_mst *args, int i, t_uni *d_type)
 		ft_putnbr(d_type->schar);
 		return (n_digits(d_type->schar));
 	}
-	// // Needs some WORK, putnbr_li isn't working
-	// else if (args->mod[i] == 2)
-	// {
-	// 	ft_putnbr_li(d_type->lint);
-	// 	return (n_digits(d_type->lint));
-	// }
-	// else if (args->mod[i] == 4)
-	// {
-	// 	ft_putnbr(d_type->lint);
-	// 	return (n_digits(d_type->lint));
-	// }
+	else if (args->mod[i] == 2)
+	{
+		ft_putnbr(d_type->lint);
+		return (n_digits(d_type->lint));
+	}
+	else if (args->mod[i] == 3)
+	{
+		ft_putnbr(d_type->llint);
+		return (n_digits(d_type->llint));
+	}
+	else if (args->mod[i] == 4)
+	{
+		ft_putnbr(d_type->imt);
+		return (n_digits(d_type->imt));
+	}
+	//mod 5 might be missing
 	return (0);
 }
 
@@ -45,6 +50,14 @@ int	handle_o(t_mst *args, int i, t_uni *d_type)
 	if (args->mod[i] == 0)
 		s = uitoa_base(d_type->i, 8);
 	else if (args->mod[i] == 1)
+		s = uitoa_base(d_type->uchar, 8);
+	else if (args->mod[i] == 2)
+		s = uitoa_base(d_type->ulint, 8);
+	else if (args->mod[i] == 3)
+		s = uitoa_base(d_type->ullint, 8);
+	else if (args->mod[i] == 4)
+		s = uitoa_base(d_type->uchar, 8);
+	else if (args->mod[i] == 5)
 		s = uitoa_base(d_type->uchar, 8);
 	ft_putstr(s);
 	return (ft_strlen(s));

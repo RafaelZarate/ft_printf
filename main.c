@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 22:12:08 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/14 20:22:44 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/14 20:38:04 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	main(void)
 {
-	int i = 111;
+	long i = 115466231122234441;
 
-	int n = ft_printf("%c\n", i);
-	int n2 = printf("%c\n", i);
+	int n = ft_printf("%li\n", i);
+	int n2 = printf("%li\n", i);
     
 
 	printf("%d, %d", n, n2);
