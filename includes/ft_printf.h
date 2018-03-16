@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 21:41:23 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/15 07:53:14 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/15 23:15:29 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,6 @@ void			handle_space_i(t_mst *args, char **s, int i);
 
 /* UTILITIES */
 int				count_args(char *fmt);
+void			struct_initializer(t_mst *args, int n);
 
 #endif

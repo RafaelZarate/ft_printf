@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:19:41 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/15 08:46:54 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/15 22:59:35 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	check_ids(char c)
 {
-	char ids[15];
+	char ids[16];
 	int i;
 
 	i = -1;
@@ -32,7 +32,8 @@ char	check_ids(char c)
 	ids[11] = 'c';
 	ids[12] = 'C';
 	ids[13] = 'd';
-	ids[14] = '\0';
+	ids[14] = '%';
+	ids[15] = '\0';
 	while (ids[++i])
 	{
 		if (ids[i] == c)
@@ -92,14 +93,12 @@ int	check_precision(char *fmt, int x, t_mst *args, int i2)
 	char *tmp;
 
 	x2 = 0;
-	if (fmt[x] == '.')
-	{
+	while (fmt[x] == '.')
 		x++;
-		while (ft_isdigit(fmt[x]))
-		{
-			x2++;
-			x++;
-		}
+	while (ft_isdigit(fmt[x]))
+	{
+		x2++;
+		x++;
 	}
 	if (x2 > 0)
 	{
