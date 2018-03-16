@@ -2,7 +2,7 @@ MAKE = make -C
 NAME = libftprintf.a
 LIB = src/libft/
 CFLAGS = -Wall -Wextra -Werror -c
-CC = clang
+CC = gcc
 
 #When compiling. you need to add your .a lib
 CFILES = src/ft_printf.c \
