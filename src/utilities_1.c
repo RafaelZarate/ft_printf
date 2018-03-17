@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:23:37 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/15 23:15:08 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/17 14:38:45 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,41 @@
 
 int	count_args(char *fmt)
 {
-	size_t i;
+	size_t x;
 	int	c;
 
-	i = -1;
+	x = -1;
 	c = 0;
-	while (++i < ft_strlen(fmt) - 1)
+	while (++x < ft_strlen(fmt) - 1)
 	{
-		if (fmt[i] == '%' && fmt[i + 1] != '%')
-			c++;
+		if (fmt[x] == '%')
+		{ 
+			x++;
+			if (fmt[x] && (fmt[x] == '#' || fmt[x] == '0' || fmt[x] == '-' || fmt[x] == '+' || fmt[x] == ' '))
+				x++;
+			while (fmt[x] && ft_isdigit(fmt[x]))
+				x++;
+			while (fmt[x] && fmt[x] == '.')
+			{
+				x++;
+				while (fmt[x] && (ft_isdigit(fmt[x])))
+					x++;
+			}
+			if (fmt[x] && ((fmt[x] == 'h' && fmt[x + 1] == 'h') || (fmt[x] == 'l' && fmt[x + 1] == 'l')))
+				x += 2;
+			else if (fmt[x] && (fmt[x] == 'l' || fmt[x] == 'j' || fmt[x] == 'z'))
+				x++;
+			if (fmt[x] && (check_ids(fmt[x]) > -1))
+			{
+				x++;
+				c++;
+			}
+		}
 	}
 	return (c);
 }
+
+
 
 void	handle_plus_i(t_mst *args, char **s, int len)
 {
@@ -145,4 +168,18 @@ void	struct_initializer(t_mst *args, int n)
 	args->mod = (int *)ft_memalloc(sizeof(int) *n);
 	args->id = ft_strnew(n);
 	args->n_chars = (int *)ft_memalloc(sizeof(int) *n);
+}
+
+void	struct_finalizer(t_mst *args)
+{
+	free(args->hash);
+	free(args->zero);
+	free(args->minus);
+	free(args->plus);
+	free(args->space);
+	free(args->mfw);
+	free(args->precision);
+	free(args->mod);
+	free(args->id);
+	free(args->n_chars);
 }

@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 21:41:23 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/15 23:15:29 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/17 14:18:33 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ int				handle_x(t_mst *args, int i, t_uni *d_type);
 int				handle_c(t_mst *args, int i, t_uni *d_type);
 int				handle_s(t_mst *args, int i, t_uni *d_type);
 // int				handle_p(t_mst *args, int i, t_uni *d_type);
+int				handle_per(t_mst *args, int i);
+//int				handle_invalid(t_mst *args, int i);
 
 void			handle_mfw(t_mst *args, int i, char **s);
 void			handle_mfw_i(t_mst *args, int i, char **s, int neg);
@@ -80,6 +82,9 @@ void			handle_space_i(t_mst *args, char **s, int i);
 
 /* UTILITIES */
 int				count_args(char *fmt);
+int				arg_is_valid(char *fmt, int i);
 void			struct_initializer(t_mst *args, int n);
+void			struct_finalizer(t_mst *args);
+
 
 #endif
