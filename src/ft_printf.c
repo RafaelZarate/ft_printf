@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 22:12:29 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/15 04:07:47 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/17 11:21:35 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ int	ft_printf(const char *fmt, ...)
 	va_end(ap);
 	free(args.n_chars);
 	free(args.id);
-	i = -1;
 	free(args.hash);
 	free(args.zero);
 	free(args.minus);
