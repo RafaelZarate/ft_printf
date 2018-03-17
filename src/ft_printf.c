@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 22:12:29 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/17 14:25:24 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/17 15:05:55 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@ int	ft_printf(const char *fmt, ...)
 	t_uni	d_type;
 	
 	i = -1;
-	c = 0;
+	c = count_args((char *)fmt);
 	i2 = 0;
 	if (!fmt)
 		return (-1);
-	if (count_args((char *)fmt) == 0)
+	if (c == 0)
 	{
 		ft_putstr(fmt);
 		return (ft_strlen(fmt));
 	}
 	va_start(ap, fmt);
-	arg_scanner((char *)fmt, &args, count_args((char *)fmt));
+	arg_scanner((char *)fmt, &args, c);
 	while (fmt[++i])
 	{
 		if (fmt[i] != '%')

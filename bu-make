@@ -1,11 +1,13 @@
 MAKE = make -C
-NAME = libftprintf.a
+NAME = printf
 LIB = src/libft/
-CFLAGS = -Wall -Wextra -Werror -c
-CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+CC = clang
 
 #When compiling. you need to add your .a lib
-CFILES = src/ft_printf.c \
+CFILES = $(LIB)/libft.a \
+        main.c \
+		src/ft_printf.c \
         src/arg_scanner.c \
         src/scanners.c \
 		src/handlers.c \
@@ -24,20 +26,18 @@ all: $(NAME)
 
 $(NAME):
 	@$(LIBM)
-	@$(CC) $(CFLAGS) $(CFILES)
-	@cp src/libft/libft.a $(NAME)
-	@ar rcs $(NAME) *.o
+	@$(CC) $(CFLAGS) -I. -o $(NAME) $(CFILES)
 	@echo "PRINTF: Successfull compilation"
 	
 
 clean:
 	@$(LIBC)
-	@/bin/rm -f *.o
+	@/bin/rm -f $(OBJECTS) printf:.o
 	@echo "PRINTF: Removed .o files"
 
-fclean: clean
+fclean:
 	@$(LIBF)
-	@/bin/rm -f $(OBJECTS) $(NAME) *.a
+	@/bin/rm -f $(OBJECTS) $(NAME)
 	@echo "PRINTF: Removed exacutable & .o files"
 
 re: fclean all
