@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:33:39 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/17 20:20:24 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/17 21:07:19 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,15 +161,25 @@ int	handle_c(t_mst *args, int i, t_uni *d_type)
 int	handle_s(t_mst *args, int i, t_uni *d_type)
 {
 	char	*s;
+	wchar_t	*s2;
 	int		n;
-	
+
 	if (args->mod[i] == 0 && args->id[i] == 's')
 		s = d_type->s;
 	else if ((args->mod[i] == 0 && args->id[i] == 'S') || (args->mod[i] == 2 && args->id[i] == 's'))
-		s = (char *)d_type->wcts;
+		s2 = d_type->wcts;
 
 	handle_mfw(args, i, &s);
-	ft_putstr(s);
+	if (args->mod[i] == 0 && args->id[i] == 's')
+		ft_putstr(s);
+	else if ((args->mod[i] == 0 && args->id[i] == 'S') || (args->mod[i] == 2 && args->id[i] == 's'))
+	{
+		int i = -1;
+
+		while (++i < (int)ft_strlen_wc(s2))
+			ft_putchar((char)s2[i]);
+		return (ft_strlen_wc(s2));
+	}
 	n = ft_strlen(s);
 	return (n);
 }
