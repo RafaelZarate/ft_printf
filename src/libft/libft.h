@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/19 10:26:57 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/15 02:23:16 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/17 20:46:15 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ char				**ft_strsplit(char const *s, char c);
 int					n_digits(intmax_t n);
 int					n_ldigits(long n);
 char				*ft_itoa(intmax_t n);
-char				*ft_litoa(long n);
 char				*uitoa_base(uintmax_t n, unsigned int base);
 void				ft_putnbr(intmax_t n);
 void				ft_putnbr_ui(uintmax_t n);
