@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 21:41:23 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/17 14:18:33 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/17 17:49:29 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 typedef	union	u_mst
 {
 	int							i;
+	short						si;
+	unsigned	short			usi;
 	unsigned	int				ui;
 	char						c;
 	signed	char				schar;

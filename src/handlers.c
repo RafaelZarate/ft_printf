@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:33:39 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/17 14:17:43 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/17 17:54:52 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,14 @@ int	handle_i(t_mst *args, int i, t_uni *d_type)
 		s = ft_itoa(d_type->lint);
 	else if (args->mod[i] == 3)
 		s = ft_itoa(d_type->llint);
-	else //mod ==4
+	else if (args->mod[i] == 4)
 		s = ft_itoa(d_type->imt);
-	//mod 5 might be missing
+	else if (args->mod[i] == 5)
+		s = ft_itoa(d_type->si);
+	else if (args->mod[i] == 6)
+		s = ft_itoa(d_type->sst);
+	else
+		return (0);
 	neg = (s[0] == '-') ? 1 : 0;
 	len = args->mfw[i] - (int)ft_strlen(s);
 	handle_mfw_i(args, i, &s, neg);
@@ -63,6 +68,8 @@ int	handle_o(t_mst *args, int i, t_uni *d_type)
 		s = uitoa_base(d_type->uchar, 8);
 	else if (args->mod[i] == 5)
 		s = uitoa_base(d_type->uchar, 8);
+	else if (args->mod[i] == 6)
+		s = uitoa_base(d_type->usi, 8);
 	
 	/*POSSIBLE FLAGS*/
 	if (args->hash[i] == 1)
@@ -89,6 +96,8 @@ int	handle_u(t_mst *args, int i, t_uni *d_type)
 		s = uitoa_base(d_type->uchar, 10);
 	else if (args->mod[i] == 5)
 		s = uitoa_base(d_type->uchar, 10);
+	else if (args->mod[i] == 6)
+		s = uitoa_base(d_type->usi, 8);
 	
 	handle_mfw(args, i, &s);
 	ft_putstr(s);
@@ -114,6 +123,8 @@ int	handle_x(t_mst *args, int i, t_uni *d_type)
 		s = uitoa_base(d_type->uchar, 16);
 	else if (args->mod[i] == 5)
 		s = uitoa_base(d_type->uchar, 16);
+	else if (args->mod[i] == 6)
+		s = uitoa_base(d_type->usi, 8);
 
 	/*POSSIBLE FLAGS*/
 	if (args->hash[i] == 1)

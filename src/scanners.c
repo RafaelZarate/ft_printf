@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:19:41 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/17 14:13:16 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/17 17:46:17 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,10 +91,15 @@ int	check_precision(char *fmt, int x, t_mst *args, int i2)
 
 int	check_mod(char *fmt, int x, t_mst *args, int i2)
 {
-	if (fmt[x] == 'h' && fmt[x + 1] == 'h')
+	if (fmt[x] == 'h')
 	{
-		args->mod[i2] = 1;
-		return (2);
+		if (fmt[x + 1] == 'h')
+		{
+			args->mod[i2] = 1;
+			return (2);
+		}
+		args->mod[i2] = 6;
+		return (1);
 	}
 	else if (fmt[x] == 'l')
 	{
