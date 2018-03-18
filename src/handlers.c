@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:33:39 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/17 20:07:47 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/17 20:09:19 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,7 +165,7 @@ int	handle_s(t_mst *args, int i, t_uni *d_type)
 	
 	if (args->mod[i] == 0 && args->id[i] == 's')
 		s = d_type->s;
-	if ((args->mod[i] == 0 && args->id[i] == 'S') || (args->mod[i] == 2 && args->id[i] == 's'))
+	else if ((args->mod[i] == 0 && args->id[i] == 'S') || (args->mod[i] == 2 && args->id[i] == 's'))
 		s = (char *)d_type->wcts;
 
 	handle_mfw(args, i, &s);
