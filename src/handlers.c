@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:33:39 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/17 18:34:21 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/17 18:57:54 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,19 +174,17 @@ int	handle_s(t_mst *args, int i, t_uni *d_type)
 	return (n);
 }
 
-// int	handle_p(t_mst *args, int i, t_uni *d_type)
-// {
-// 	char *s;
-// 	int n;
+int	handle_p(t_mst *args, int i, t_uni *d_type)
+{
+	char *s;
 
-// 	n = &d_
-// 	if (args->mod[i] == 0)
-// 	{
-// 		s = ft_strjoin("0x", uitoa_base(d_type->i, 16));
-// 	}
-// 	ft_putstr(s);
-// 	return (ft_strlen(s));
-// }
+	if (args->mod[i] == 0)
+	{
+		s = ft_strjoin("0x", uitoa_base(d_type->uimt, 16));
+	}
+	ft_putstr(s);
+	return (ft_strlen(s));
+}
 
 int	handle_per(t_mst *args, int i)
 {
