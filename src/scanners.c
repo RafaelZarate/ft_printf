@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:19:41 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/17 17:46:17 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/17 18:12:04 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ int	check_mod(char *fmt, int x, t_mst *args, int i2)
 	else if (fmt[x] == 'z')
 	{
 		args->mod[i2] = 5;
-		return (0);
+		return (1);
 	}
 	return (0);
 }

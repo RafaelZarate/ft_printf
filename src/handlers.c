@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:33:39 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/17 17:54:52 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/17 18:06:56 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ int	handle_o(t_mst *args, int i, t_uni *d_type)
 	else if (args->mod[i] == 3)
 		s = uitoa_base(d_type->ullint, 8);
 	else if (args->mod[i] == 4)
-		s = uitoa_base(d_type->uchar, 8);
+		s = uitoa_base(d_type->uimt, 8);
 	else if (args->mod[i] == 5)
-		s = uitoa_base(d_type->uchar, 8);
+		s = uitoa_base(d_type->st, 8);
 	else if (args->mod[i] == 6)
 		s = uitoa_base(d_type->usi, 8);
 	
@@ -93,9 +93,9 @@ int	handle_u(t_mst *args, int i, t_uni *d_type)
 	else if (args->mod[i] == 3)
 		s = uitoa_base(d_type->ullint, 10);
 	else if (args->mod[i] == 4)
-		s = uitoa_base(d_type->uchar, 10);
+		s = uitoa_base(d_type->uimt, 10);
 	else if (args->mod[i] == 5)
-		s = uitoa_base(d_type->uchar, 10);
+		s = uitoa_base(d_type->st, 10);
 	else if (args->mod[i] == 6)
 		s = uitoa_base(d_type->usi, 8);
 	
@@ -120,9 +120,9 @@ int	handle_x(t_mst *args, int i, t_uni *d_type)
 	else if (args->mod[i] == 3)
 		s = uitoa_base(d_type->ullint, 16);
 	else if (args->mod[i] == 4)
-		s = uitoa_base(d_type->uchar, 16);
+		s = uitoa_base(d_type->uimt, 16);
 	else if (args->mod[i] == 5)
-		s = uitoa_base(d_type->uchar, 16);
+		s = uitoa_base(d_type->st, 16);
 	else if (args->mod[i] == 6)
 		s = uitoa_base(d_type->usi, 8);
 
