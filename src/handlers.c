@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:33:39 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/17 19:40:58 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/17 19:59:16 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	handle_i(t_mst *args, int i, t_uni *d_type)
 		handle_plus_i(args, &s, len);
 	else if (args->space[i] == 1 && d_type->imt >= 0)
 	{
-		if (args->mfw[i] == 0)
+		if (args->mfw[i] == 0 && neg == 0)
 			s = ft_strjoin(" ", s);
 		else
 			s[0] = ' ';
