@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:23:37 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/17 14:38:45 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/17 17:28:03 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,7 @@ int	count_args(char *fmt)
 			else if (fmt[x] && (fmt[x] == 'l' || fmt[x] == 'j' || fmt[x] == 'z'))
 				x++;
 			if (fmt[x] && (check_ids(fmt[x]) > -1))
-			{
-				x++;
 				c++;
-			}
 		}
 	}
 	return (c);
