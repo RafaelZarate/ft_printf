@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/06 01:47:44 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/17 18:57:43 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/17 20:20:46 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	arg_handler(t_mst *args, va_list ap, int i, t_uni *d_type)
 		d_type->imt = va_arg(ap, intmax_t);
 	else if (args->id[i] == 'o' || args->id[i] == 'O' || args->id[i] == 'u' || 
 			args->id[i] == 'U' || args->id[i] == 'x' || args->id[i] == 'X' ||
-			args->id[i] == 'C')
+			args->id[i] == 'C' || args->id[i] == 'p')
 		d_type->uimt = va_arg(ap, uintmax_t);
 	
 
@@ -43,7 +43,7 @@ int	arg_handler(t_mst *args, va_list ap, int i, t_uni *d_type)
 		return	(handle_per(args, i));
 	// p Isn't ready yet
 	else if (args->id[i] == 'p')
-		return	(handle_p(args, i, d_type));
+		return	(handle_p(d_type));
 	return (0);
 }
 
