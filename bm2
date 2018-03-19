@@ -1,7 +1,7 @@
 MAKE = make -C
 NAME = printf
 LIB = src/libft/
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra
 CC = clang
 
 #When compiling. you need to add your .a lib
