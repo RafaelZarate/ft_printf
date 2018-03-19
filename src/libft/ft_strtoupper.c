@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/15 01:45:26 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/15 02:22:52 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/18 20:55:59 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	ft_strtoupper(char **s)
 {
-	size_t i;
+	size_t	i;
 	char	*tmp;
-	char *str;
-	
+	char	*str;
+
 	str = *s;
 	tmp = ft_strnew(ft_strlen(str));
 	i = -1;

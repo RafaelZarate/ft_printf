@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 15:13:58 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/17 20:46:17 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/18 20:53:58 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		n_digits(intmax_t n)
 	return (r);
 }
 
-char			*ft_itoa(intmax_t n)
+char	*ft_itoa(intmax_t n)
 {
 	char	*s;
 	int		i;
