@@ -6,13 +6,13 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:19:41 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/18 20:38:33 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/18 20:41:11 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		check_flags(char *fmt, int x, t_mst *args, int i2)
+int	check_flags(char *fmt, int x, t_mst *args, int i2)
 {
 	int	x2;
 
@@ -36,7 +36,7 @@ int		check_flags(char *fmt, int x, t_mst *args, int i2)
 	return (x2);
 }
 
-int		check_mfw(char *fmt, int x, t_mst *args, int i2)
+int	check_mfw(char *fmt, int x, t_mst *args, int i2)
 {
 	int		x2;
 	char	*tmp;
@@ -58,7 +58,7 @@ int		check_mfw(char *fmt, int x, t_mst *args, int i2)
 		return (0);
 }
 
-int		check_precision(char *fmt, int x, t_mst *args, int i2)
+int	check_precision(char *fmt, int x, t_mst *args, int i2)
 {
 	int		x2;
 	char	*tmp;
@@ -82,25 +82,25 @@ int		check_precision(char *fmt, int x, t_mst *args, int i2)
 		return (0);
 }
 
-int		check_mod(char *fmt, int x, t_mst *args, int i2)
+int	check_mod(char *fmt, int x, t_mst *args, int i2)
 {
-	if (fmt[x] == 'h' && fmt[x + 1] == 'h')
+	if (fmt[x] == 'h')
 	{
-		args->mod[i2] = 1;
-		return (2);
-	}
-	else if (fmt[x] == 'h')
-	{
+		if (fmt[x + 1] == 'h')
+		{
+			args->mod[i2] = 1;
+			return (2);
+		}
 		args->mod[i2] = 6;
 		return (1);
 	}
-	else if (fmt[x] == 'l' && fmt[x + 1] == 'l')
+	else if (fmt[x] == 'l')
 	{
-		args->mod[i2] = 3;
-		return (2);
-	}
-	else if (fmt[x + 1] == 'l')
-	{
+		if (fmt[x + 1] == 'l')
+		{
+			args->mod[i2] = 3;
+			return (2);
+		}
 		args->mod[i2] = 2;
 		return (1);
 	}
@@ -132,7 +132,7 @@ char	check_ids(char c)
 			r = ids[i];
 			free(ids);
 			return (r);
-		}
+		};
 	}
 	return (-1);
 }
