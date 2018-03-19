@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:33:39 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/17 21:15:11 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/18 19:40:47 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,6 @@ int	handle_c(t_mst *args, int i, t_uni *d_type)
 	handle_mfw(args, i, &s);
 	ft_putstr(s);
 	n = ft_strlen(s);
-	free(s);
 	return (n);
 }
 
