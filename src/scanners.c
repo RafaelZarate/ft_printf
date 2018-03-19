@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:19:41 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/17 18:12:04 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/18 20:32:35 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,30 +126,20 @@ int	check_mod(char *fmt, int x, t_mst *args, int i2)
 
 char	check_ids(char c)
 {
-	char ids[16];
+	char *ids;
+	char r;
 	int i;
 
 	i = -1;
-	ids[0] = 's';
-	ids[1] = 'S';
-	ids[2] = 'p';
-	ids[3] = 'D';
-	ids[4] = 'i';
-	ids[5] = 'o';
-	ids[6] = 'O';
-	ids[7] = 'u';
-	ids[8] = 'U';
-	ids[9] = 'x';
-	ids[10] = 'X';
-	ids[11] = 'c';
-	ids[12] = 'C';
-	ids[13] = 'd';
-	ids[14] = '%';
-	ids[15] = '\0';
+	ids = ft_strdup("sSpDioOuUxXcCd%");
 	while (ids[++i])
 	{
 		if (ids[i] == c)
-			return (ids[i]);
+		{
+			r = ids[i];
+			free(ids);
+			return (r);
+		};
 	}
 	return (-1);
 }
