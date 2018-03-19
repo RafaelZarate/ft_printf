@@ -10,6 +10,7 @@ CFILES = src/ft_printf.c \
         src/scanners.c \
 		src/handlers_1.c \
 		src/handlers_2.c \
+		src/handlers_3.c \
 		src/arg_handler.c \
 		src/utilities_1.c
 
