@@ -6,13 +6,13 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:19:41 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/18 20:41:11 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/18 20:42:16 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	check_flags(char *fmt, int x, t_mst *args, int i2)
+int		check_flags(char *fmt, int x, t_mst *args, int i2)
 {
 	int	x2;
 
@@ -36,7 +36,7 @@ int	check_flags(char *fmt, int x, t_mst *args, int i2)
 	return (x2);
 }
 
-int	check_mfw(char *fmt, int x, t_mst *args, int i2)
+int		check_mfw(char *fmt, int x, t_mst *args, int i2)
 {
 	int		x2;
 	char	*tmp;
@@ -58,7 +58,7 @@ int	check_mfw(char *fmt, int x, t_mst *args, int i2)
 		return (0);
 }
 
-int	check_precision(char *fmt, int x, t_mst *args, int i2)
+int		check_precision(char *fmt, int x, t_mst *args, int i2)
 {
 	int		x2;
 	char	*tmp;
@@ -82,7 +82,7 @@ int	check_precision(char *fmt, int x, t_mst *args, int i2)
 		return (0);
 }
 
-int	check_mod(char *fmt, int x, t_mst *args, int i2)
+int		check_mod(char *fmt, int x, t_mst *args, int i2)
 {
 	if (fmt[x] == 'h')
 	{
@@ -132,7 +132,7 @@ char	check_ids(char c)
 			r = ids[i];
 			free(ids);
 			return (r);
-		};
+		}
 	}
 	return (-1);
 }
