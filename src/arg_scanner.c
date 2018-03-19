@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/06 02:18:41 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/17 16:53:35 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/18 20:00:24 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	arg_scanner(char *fmt, t_mst *args, int n)
 {
 	size_t	i;
-	int	x;
-	int i2;
+	int		x;
+	int		i2;
 
 	i = -1;
 	i2 = 0;
@@ -39,7 +39,7 @@ void	arg_scanner(char *fmt, t_mst *args, int n)
 				x--;
 			}
 			i += args->n_chars[i2];
-			i2++;;
+			i2++;
 		}
 	}
 }
