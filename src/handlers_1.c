@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handlers.c                                         :+:      :+:    :+:   */
+/*   handlers_1.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:33:39 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/18 19:40:47 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/18 20:25:59 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	handle_i(t_mst *args, int i, t_uni *d_type)
 {
-	char *s;
+	char	*s;
 	int		neg;
 	int		len;
 
@@ -37,8 +37,6 @@ int	handle_i(t_mst *args, int i, t_uni *d_type)
 	neg = (s[0] == '-') ? 1 : 0;
 	len = args->mfw[i] - (int)ft_strlen(s);
 	handle_mfw_i(args, i, &s, neg);
-
-	/*POSSIBLE FLAGS*/
 	if (args->plus[i] == 1 && neg == 0)
 		handle_plus_i(args, &s, len);
 	else if (args->space[i] == 1 && d_type->imt >= 0)
@@ -54,7 +52,7 @@ int	handle_i(t_mst *args, int i, t_uni *d_type)
 
 int	handle_o(t_mst *args, int i, t_uni *d_type)
 {
-	char *s;
+	char	*s;
 
 	if (args->mod[i] == 0)
 		s = uitoa_base(d_type->ui, 8);
@@ -70,10 +68,8 @@ int	handle_o(t_mst *args, int i, t_uni *d_type)
 		s = uitoa_base(d_type->st, 8);
 	else if (args->mod[i] == 6)
 		s = uitoa_base(d_type->usi, 8);
-	
-	/*POSSIBLE FLAGS*/
 	if (args->hash[i] == 1 && s[0] != '0')
-			s = ft_strjoin("0", s);
+		s = ft_strjoin("0", s);
 	handle_mfw(args, i, &s);
 	ft_putstr(s);
 	return (ft_strlen(s));
@@ -81,7 +77,7 @@ int	handle_o(t_mst *args, int i, t_uni *d_type)
 
 int	handle_u(t_mst *args, int i, t_uni *d_type)
 {
-	char *s;
+	char	*s;
 	int		n;
 
 	if (args->mod[i] == 0)
@@ -98,7 +94,6 @@ int	handle_u(t_mst *args, int i, t_uni *d_type)
 		s = uitoa_base(d_type->st, 10);
 	else if (args->mod[i] == 6)
 		s = uitoa_base(d_type->usi, 10);
-	
 	handle_mfw(args, i, &s);
 	ft_putstr(s);
 	n = ft_strlen(s);
@@ -108,8 +103,8 @@ int	handle_u(t_mst *args, int i, t_uni *d_type)
 
 int	handle_x(t_mst *args, int i, t_uni *d_type)
 {
-	char *s;
-	int n;
+	char	*s;
+	int		n;
 
 	if (args->mod[i] == 0)
 		s = uitoa_base(d_type->ui, 16);
@@ -125,14 +120,10 @@ int	handle_x(t_mst *args, int i, t_uni *d_type)
 		s = uitoa_base(d_type->st, 16);
 	else if (args->mod[i] == 6)
 		s = uitoa_base(d_type->usi, 16);
-
-	/*POSSIBLE FLAGS*/
 	if (args->hash[i] == 1)
-			s = ft_strjoin("0x", s);
-	
+		s = ft_strjoin("0x", s);
 	if (args->id[i] == 'X')
 		ft_strtoupper(&s);
-	
 	handle_mfw(args, i, &s);
 	ft_putstr(s);
 	n = ft_strlen(s);
@@ -144,65 +135,15 @@ int	handle_c(t_mst *args, int i, t_uni *d_type)
 {
 	char	*s;
 	int		n;
-	
+
 	s = ft_strnew(1);
 	if (args->mod[i] == 0 && args->id[i] == 'c')
 		s[0] = d_type->c;
-	if ((args->mod[i] == 0 && args->id[i] == 'C') || (args->mod[i] == 2 && args->id[i] == 'c'))
+	if ((args->mod[i] == 0 && args->id[i] == 'C') ||
+			(args->mod[i] == 2 && args->id[i] == 'c'))
 		s[0] = (char)d_type->wct;
-
 	handle_mfw(args, i, &s);
 	ft_putstr(s);
 	n = ft_strlen(s);
-	return (n);
-}
-
-int	handle_s(t_mst *args, int i, t_uni *d_type)
-{
-	char	*s;
-	wchar_t	*s2;
-	int		n;
-
-	if (args->mod[i] == 0 && args->id[i] == 's')
-		s = d_type->s;
-	else if ((args->mod[i] == 0 && args->id[i] == 'S') || (args->mod[i] == 2 && args->id[i] == 's'))
-		s2 = d_type->wcts;
-
-	handle_mfw(args, i, &s);
-	if (args->mod[i] == 0 && args->id[i] == 's')
-		ft_putstr(s);
-	else if ((args->mod[i] == 0 && args->id[i] == 'S') || (args->mod[i] == 2 && args->id[i] == 's'))
-	{
-		int i = -1;
-
-		while (++i < (int)ft_strlen_wc(s2))
-			ft_putchar((char)s2[i]);
-		return (ft_strlen_wc(s2));
-	}
-	n = ft_strlen(s);
-	return (n);
-}
-
-int	handle_p(t_uni *d_type)
-{
-	char *s;
-
-	s = ft_strjoin("0x", uitoa_base(d_type->uimt, 16));
-	ft_putstr(s);
-	return (ft_strlen(s));
-}
-
-int	handle_per(t_mst *args, int i)
-{
-	char	*s;
-	int		n;
-	
-	s = ft_strnew(1);
-	s[0] = '%';
-
-	handle_mfw(args, i, &s);
-	ft_putstr(s);
-	n = ft_strlen(s);
-	free(s);
 	return (n);
 }

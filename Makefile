@@ -8,7 +8,8 @@ CC = gcc
 CFILES = src/ft_printf.c \
         src/arg_scanner.c \
         src/scanners.c \
-		src/handlers.c \
+		src/handlers_1.c \
+		src/handlers_2.c \
 		src/arg_handler.c \
 		src/utilities_1.c
 
