@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:33:39 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/20 11:58:56 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/20 11:59:37 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@ int	handle_i(t_mst *args, int i, t_uni *d_type)
 	else if (args->mod[i] == 6)
 		s = ft_itoa(d_type->sst);
 	i_helper(args, i, &s);
-	ft_putstr(s);
-	return (ft_strlen(s));
+	return (p_and_f(&s));
 }
 
 int	handle_o(t_mst *args, int i, t_uni *d_type)
