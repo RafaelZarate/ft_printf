@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/18 20:45:36 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/20 14:10:04 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/20 14:12:58 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,37 +18,37 @@ void	handle_plus_i(t_mst *args, char **s, int len, int i)
 	int		x;
 
 	x = 0;
-	tmp = *s;
 	if (len < 1)
-		tmp = ft_strjoin("+", tmp);
+	{
+		tmp = ft_strjoin("+", *s);
+		free(*s);
+		*s = tmp;
+	}
 	else
 	{
 		if (args->zero[i] == 1)
 			*s[0] = '+';
 		else if (args->zero[i] == 0)
 		{
-			while (!ft_isdigit(tmp[x]))
+			while (!ft_isdigit(*s[x]))
 				x++;
-			tmp[--x] = '+';
+			*s[--x] = '+';
 		}
 	}
-	*s = tmp;
 }
 
 void	handle_space_i(t_mst *args, char **s, int i)
 {
 	char	*tmp;
-	char	*ps;
-
-	ps = *s;
+	
 	if (args->mfw[i] == 0)
 	{
-		tmp = ft_strjoin(" ", ps);
+		tmp = ft_strjoin(" ", *s);
 		free(*s);
 		*s = tmp;
 	}
 	else
-		ps[0] = ' ';
+		*s[0] = ' ';
 }
 
 void	handle_mfw_i(t_mst *args, int i, char **s, int neg)
