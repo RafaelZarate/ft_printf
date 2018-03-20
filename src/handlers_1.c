@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:33:39 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/20 10:43:28 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/20 10:46:35 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	handle_o(t_mst *args, int i, t_uni *d_type)
 		s = uitoa_base(d_type->usi, 8);
 	if (args->hash[i] == 1 && s[0] != '0')
 		s = ft_strjoin("0", s);
-	handle_mfw(args, i, &s);
+	(args->mfw[i] - (int)ft_strlen(s) > 0) ? handle_mfw(args, i, &s) : 0;
 	ft_putstr(s);
 	return (ft_strlen(s));
 }
