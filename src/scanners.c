@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:19:41 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/18 20:42:16 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/19 21:56:47 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,11 @@ int		check_precision(char *fmt, int x, t_mst *args, int i2)
 	char	*tmp;
 
 	x2 = 0;
-	while (fmt[x] == '.')
+	if (fmt[x] == '.')
+	{
+		args->dot[i2] = 1;
 		x++;
+	}
 	while (ft_isdigit(fmt[x]))
 	{
 		x2++;

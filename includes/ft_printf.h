@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 21:41:23 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/19 19:46:02 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/19 22:11:27 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void			handle_mfw_i(t_mst *args, int i, char **s, int neg);
 void			handle_flags_i(t_mst *args, int i, char **s, int len);
 void			handle_plus_i(t_mst *args, char **s, int len, int i);
 void			handle_space_i(t_mst *args, char **s, int i);
+void			handle_pre(t_mst *args, int i, char **s);
 
 /* UTILITIES */
 int				count_args(char *fmt);

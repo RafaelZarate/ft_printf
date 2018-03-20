@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:23:37 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/19 17:23:06 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/19 21:55:32 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	struct_initializer(t_mst *args, int n)
 	args->plus = (int *)ft_memalloc(sizeof(int) * n);
 	args->space = (int *)ft_memalloc(sizeof(int) * n);
 	args->mfw = (int *)ft_memalloc(sizeof(int) * n);
+	args->dot = (int *)ft_memalloc(sizeof(int) * n);
 	args->precision = (int *)ft_memalloc(sizeof(int) * n);
 	args->mod = (int *)ft_memalloc(sizeof(int) * n);
 	args->id = ft_strnew(n);
