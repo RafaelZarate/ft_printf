@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:33:39 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/19 18:29:30 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/19 18:39:27 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,21 +134,19 @@ int	handle_x(t_mst *args, int i, t_uni *d_type)
 int	handle_c(t_mst *args, int i, t_uni *d_type)
 {
 	char	*s;
-	char	c;
 	int		n;
 
+	if (args->mfw[i] == 0)
+	{
+		ft_putchar(d_type->c);
+		return (1);
+	}
 	s = ft_strnew(1);
 	if (args->mod[i] == 0 && args->id[i] == 'c')
 		s[0] = d_type->c;
 	if ((args->mod[i] == 0 && args->id[i] == 'C') ||
 			(args->mod[i] == 2 && args->id[i] == 'c'))
 		s[0] = (char)d_type->wct;
-	if (args->mfw == 0)
-	{
-		c = d_type->c;
-		ft_putchar(c);
-		return (1);
-	}
 	handle_mfw(args, i, &s);
 	ft_putstr(s);
 	n = ft_strlen(s);
