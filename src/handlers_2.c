@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/18 20:19:23 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/20 11:55:25 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/20 11:56:30 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ int	handle_p(t_uni *d_type)
 	char *s;
 
 	s = ft_strjoin("0x", uitoa_base(d_type->uimt, 16));
-	return (p_and_f(&s));
+	ft_putstr(s);
+	return (ft_strlen(s));
 }
 
 int	handle_per(t_mst *args, int i)
