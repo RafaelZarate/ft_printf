@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:23:37 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/20 11:16:09 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/20 11:52:36 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,14 @@ void	i_helper(t_mst *args, int i, char **s)
 		else if (args->mfw[i] != 0 && neg == 0)
 			*s[0] = ' ';
 	}
+}
+
+int		p_and_f(char **s)
+{
+	int	len;
+	
+	len = ft_strlen(*s);
+	ft_putstr(*s);
+	free(*s);
+	return (len);
 }

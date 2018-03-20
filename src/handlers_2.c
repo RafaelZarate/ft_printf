@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/18 20:19:23 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/20 10:49:21 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/20 11:52:54 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,5 @@ int	handle_per(t_mst *args, int i)
 	s = ft_strnew(1);
 	s[0] = '%';
 	handle_mfw(args, i, &s);
-	ft_putstr(s);
-	n = ft_strlen(s);
-	free(s);
-	return (n);
+	return (p_and_f(&s));
 }

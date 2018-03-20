@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 21:41:23 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/20 11:24:46 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/20 11:51:16 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,6 @@ int				arg_is_valid(char *fmt, int i);
 void			struct_initializer(t_mst *args, int n);
 void			struct_finalizer(t_mst *args);
 void			i_helper(t_mst *args, int i, char **s);
+int				p_and_f(char **s);
 
 #endif
