@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/18 20:45:36 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/20 13:50:31 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/20 14:10:04 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	handle_plus_i(t_mst *args, char **s, int len, int i)
 	else
 	{
 		if (args->zero[i] == 1)
-			tmp[0] = '+';
+			*s[0] = '+';
 		else if (args->zero[i] == 0)
 		{
 			while (!ft_isdigit(tmp[x]))
@@ -108,3 +108,48 @@ void	handle_mfw(t_mst *args, int i, char **s)
 		}
 	}
 }
+
+// void	handle_mfw(t_mst *args, int i, char **s)
+// {
+// 	char	*tmp;
+// 	char	*ps;
+// 	int		len;
+// 	char	*s2;
+// 	int		i2;
+
+// 	i2 = -1;
+// 	ps = *s;
+// 	len = args->mfw[i] - (int)ft_strlen(ps);
+// 	if (len > 0)
+// 	{
+// 		s2 = ft_strnew(len);
+// 		if (args->zero[i] == 1 && args->minus[i] == 0)
+// 		{
+// 			while (++i2 < len)
+// 				s2[i2] = '0';
+// 			tmp = ft_strjoin(s2, ps);
+// 			free(ps);
+// 			free(s2);
+// 			*s = tmp;
+// 		}
+// 		else
+// 		{
+// 			while (++i2 < len)
+// 				s2[i2] = ' ';
+// 			if (args->minus[i] == 1)
+// 			{
+// 				tmp = ft_strjoin(ps, s2);
+// 				free(ps);
+// 				free(s2);
+// 				*s = tmp;
+// 			}
+// 			else
+// 			{
+// 				tmp = ft_strjoin(s2, ps);
+// 				free(ps);
+// 				free(s2);
+// 				*s = tmp;
+// 			}
+// 		}
+// 	}
+// }

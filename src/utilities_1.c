@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:23:37 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/20 12:12:07 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/20 14:05:45 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void	struct_finalizer(t_mst *args)
 	free(args->plus);
 	free(args->space);
 	free(args->mfw);
+	free(args->dot);
 	free(args->precision);
 	free(args->mod);
 	free(args->id);
