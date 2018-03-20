@@ -6,13 +6,13 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 22:12:29 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/19 22:16:01 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/19 22:22:26 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	arg_handler(t_mst *args, va_list ap, int i, t_uni *d_type)
+static	int		arg_handler(t_mst *args, va_list ap, int i, t_uni *d_type)
 {
 	if (args->id[i] == 'i' || args->id[i] == 'd' || args->id[i] == 'D' ||
 			args->id[i] == 's' || args->id[i] == 'S' || args->id[i] == 'c' ||
@@ -41,7 +41,7 @@ int	arg_handler(t_mst *args, va_list ap, int i, t_uni *d_type)
 	return (0);
 }
 
-void	arg_scanner(char *fmt, t_mst *args, int n)
+static	void	arg_scanner(char *fmt, t_mst *args, int n)
 {
 	size_t	i;
 	int		x;
@@ -49,7 +49,6 @@ void	arg_scanner(char *fmt, t_mst *args, int n)
 
 	i = -1;
 	i2 = 0;
-	struct_initializer(args, n);
 	while (++i < ft_strlen(fmt) - 1)
 	{
 		if (fmt[i] == '%')
@@ -57,8 +56,7 @@ void	arg_scanner(char *fmt, t_mst *args, int n)
 			x = i + 1;
 			x += check_flags(fmt, x, args, i2);
 			x += check_mfw(fmt, x, args, i2);
-			if (fmt[x] == '.')
-				x += check_precision(fmt, x, args, i2);
+			x += check_precision(fmt, x, args, i2);
 			x += check_mod(fmt, x, args, i2);
 			args->id[i2] = check_ids(fmt[x]);
 			args->n_chars[i2] = x - i;
@@ -73,7 +71,7 @@ void	arg_scanner(char *fmt, t_mst *args, int n)
 	}
 }
 
-static	int	printer(t_mst *args, va_list ap, char *fmt, t_uni *d_type)
+static	int		printer(t_mst *args, va_list ap, char *fmt, t_uni *d_type)
 {
 	int i;
 	int	i2;
@@ -99,7 +97,7 @@ static	int	printer(t_mst *args, va_list ap, char *fmt, t_uni *d_type)
 	return (c);
 }
 
-int			ft_printf(const char *fmt, ...)
+int				ft_printf(const char *fmt, ...)
 {
 	va_list	ap;
 	t_mst	args;
@@ -109,6 +107,7 @@ int			ft_printf(const char *fmt, ...)
 
 	c = 0;
 	c_a = count_args((char *)fmt);
+	struct_initializer(args, n);
 	if (!fmt)
 		return (-1);
 	if (c_a == 0)
