@@ -1,7 +1,7 @@
 MAKE = make -C
 NAME = printf
 LIB = src/libft/
-CFLAGS = -Wall -Wextra
+CFLAGS = -Wall -Wextra -Werror
 CC = clang
 
 #When compiling. you need to add your .a lib
@@ -10,7 +10,9 @@ CFILES = $(LIB)/libft.a \
 		src/ft_printf.c \
         src/arg_scanner.c \
         src/scanners.c \
-		src/handlers.c \
+		src/handlers_1.c \
+		src/handlers_2.c \
+		src/handlers_3.c \
 		src/arg_handler.c \
 		src/utilities_1.c
 

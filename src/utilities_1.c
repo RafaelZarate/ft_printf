@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:23:37 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/18 20:48:33 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/19 17:23:06 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		count_args(char *fmt)
 		if (fmt[x] == '%')
 		{
 			x++;
-			if (fmt[x] && (fmt[x] == '#' || fmt[x] == '0' || fmt[x] == '-' ||
+			while (fmt[x] && (fmt[x] == '#' || fmt[x] == '0' || fmt[x] == '-' ||
 					fmt[x] == '+' || fmt[x] == ' '))
 				x++;
 			while (fmt[x] && ft_isdigit(fmt[x]))
