@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:23:37 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/20 11:52:36 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/20 12:12:07 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,9 @@ void	struct_finalizer(t_mst *args)
 
 void	i_helper(t_mst *args, int i, char **s)
 {
-	int neg;
-	int len;
+	int		neg;
+	int		len;
+	char	*tmp;
 
 	neg = (*s[0] == '-') ? 1 : 0;
 	len = args->mfw[i] - (int)ft_strlen(*s);
@@ -83,7 +84,11 @@ void	i_helper(t_mst *args, int i, char **s)
 	else if (args->space[i] == 1)
 	{
 		if (args->mfw[i] == 0 && neg == 0)
-			*s = ft_strjoin(" ", *s);
+		{
+			tmp = ft_strjoin(" ", *s);
+			free(*s);
+			*s = tmp;
+		}
 		else if (args->mfw[i] != 0 && neg == 0)
 			*s[0] = ' ';
 	}
