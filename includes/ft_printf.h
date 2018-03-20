@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 21:41:23 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/20 11:51:16 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/20 14:56:43 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ typedef	struct	s_mst
 	char	*id;
 	int		*n_chars;
 }				t_mst;
+
+# define IDS "sSpDioOuUxXcCd%"
 
 /*
 ** MAIN FUNCTIONS
