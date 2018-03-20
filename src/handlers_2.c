@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/18 20:19:23 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/20 11:57:11 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/20 12:01:25 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ int	handle_p(t_uni *d_type)
 int	handle_per(t_mst *args, int i)
 {
 	char	*s;
-	int		n;
 
 	s = ft_strnew(1);
 	s[0] = '%';

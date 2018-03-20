@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:33:39 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/20 11:59:37 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/20 12:01:18 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ int	handle_o(t_mst *args, int i, t_uni *d_type)
 int	handle_u(t_mst *args, int i, t_uni *d_type)
 {
 	char	*s;
-	int		n;
 
 	if (args->mod[i] == 0)
 		s = uitoa_base(d_type->ui, 10);
@@ -84,7 +83,6 @@ int	handle_u(t_mst *args, int i, t_uni *d_type)
 int	handle_x(t_mst *args, int i, t_uni *d_type)
 {
 	char	*s;
-	int		n;
 
 	if (args->mod[i] == 0)
 		s = uitoa_base(d_type->ui, 16);
@@ -110,7 +108,6 @@ int	handle_x(t_mst *args, int i, t_uni *d_type)
 int	handle_c(t_mst *args, int i, t_uni *d_type)
 {
 	char	*s;
-	int		n;
 
 	if (args->mfw[i] == 0)
 	{
