@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/18 20:45:36 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/20 12:17:37 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/20 13:35:54 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,17 @@ void	handle_plus_i(t_mst *args, char **s, int len, int i)
 void	handle_space_i(t_mst *args, char **s, int i)
 {
 	char	*tmp;
+	char	*ps;
 
-	tmp = *s;
+	ps = *s;
 	if (args->mfw[i] == 0)
-		tmp = ft_strjoin(" ", tmp);
+	{
+		tmp = ft_strjoin(" ", ps);
+		free(*s);
+		*s = tmp;
+	}
 	else
-		tmp[0] = ' ';
-	*s = tmp;
+		ps[0] = ' ';
 }
 
 void	handle_mfw_i(t_mst *args, int i, char **s, int neg)
