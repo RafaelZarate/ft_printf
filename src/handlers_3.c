@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/18 20:45:36 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/20 13:35:54 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/20 13:47:31 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,13 +83,14 @@ void	handle_mfw_i(t_mst *args, int i, char **s, int neg)
 void	handle_mfw(t_mst *args, int i, char **s)
 {
 	char	*tmp;
+	char	*ps;
 	int		len;
 	char	*s2;
 	int		i2;
 
 	i2 = -1;
-	tmp = *s;
-	len = args->mfw[i] - (int)ft_strlen(tmp);
+	ps = *s;
+	len = args->mfw[i] - (int)ft_strlen(ps);
 	if (len > 0)
 	{
 		s2 = ft_strnew(len);
@@ -97,14 +98,29 @@ void	handle_mfw(t_mst *args, int i, char **s)
 		{
 			while (++i2 < len)
 				s2[i2] = '0';
-			*s = ft_strjoin(s2, tmp);
+			tmp = ft_strjoin(s2, ps);
+			free(*s);
+			free(s2);
+			*s = tmp;
 		}
 		else
 		{
 			while (++i2 < len)
 				s2[i2] = ' ';
-			(args->minus[i] == 1) ? *s = ft_strjoin(tmp, s2) : 0;
-			(args->minus[i] != 1) ? *s = ft_strjoin(s2, tmp) : 0;
+			if (args->minus[i] == 1)
+			{
+				tmp = ft_strjoin(ps, s2);
+				free(*s);
+				free(s2);
+				*s = tmp;
+			}
+			else
+			{
+				tmp = ft_strjoin(s2, ps);
+				free(*s);
+				free(s2);
+				*s = tmp;
+			}
 		}
 	}
 }
