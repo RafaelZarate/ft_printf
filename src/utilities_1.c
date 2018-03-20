@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:23:37 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/19 22:39:39 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/20 11:16:09 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,13 @@ int		count_args(char *fmt)
 				x++;
 			while (fmt[x] && ft_isdigit(fmt[x]))
 				x++;
-			while (fmt[x] && fmt[x] == '.')
-			{
+			(fmt[x] && fmt[x] == '.') ? x++ : 0;
+			while (fmt[x] && (ft_isdigit(fmt[x])))
 				x++;
-				while (fmt[x] && (ft_isdigit(fmt[x])))
-					x++;
-			}
-			if (fmt[x] && ((fmt[x] == 'h' && fmt[x + 1] == 'h') ||
-					(fmt[x] == 'l' && fmt[x + 1] == 'l')))
-				x += 2;
-			else if (fmt[x] && (fmt[x] == 'l' || fmt[x] == 'j' ||
-					fmt[x] == 'z'))
-				x++;
-			if (fmt[x] && (check_ids(fmt[x]) > -1))
-				c++;
+			(fmt[x + 1] && ((fmt[x] == 'h' && fmt[x + 1] == 'h') ||
+					(fmt[x] == 'l' && fmt[x + 1] == 'l'))) ? x += 2 : 0;
+			((fmt[x] == 'l' || fmt[x] == 'j' || fmt[x] == 'z')) ? x++ : 0;
+			(fmt[x] && (check_ids(fmt[x]) > -1)) ? c++ : 0;
 		}
 	}
 	return (c);
