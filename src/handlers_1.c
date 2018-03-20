@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:33:39 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/19 21:43:44 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/19 22:32:59 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ int	handle_i(t_mst *args, int i, t_uni *d_type)
 		s = ft_itoa(d_type->si);
 	else if (args->mod[i] == 6)
 		s = ft_itoa(d_type->sst);
-	else
-		return (0);
 	neg = (s[0] == '-') ? 1 : 0;
 	len = args->mfw[i] - (int)ft_strlen(s);
 	handle_mfw_i(args, i, &s, neg);
@@ -122,8 +120,7 @@ int	handle_x(t_mst *args, int i, t_uni *d_type)
 		s = uitoa_base(d_type->usi, 16);
 	if (args->hash[i] == 1)
 		s = ft_strjoin("0x", s);
-	if (args->id[i] == 'X')
-		ft_strtoupper(&s);
+	(args->id[i] == 'X') ? ft_strtoupper(&s) : 0;
 	handle_mfw(args, i, &s);
 	ft_putstr(s);
 	n = ft_strlen(s);
