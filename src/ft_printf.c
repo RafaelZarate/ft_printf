@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 22:12:29 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/19 22:25:49 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/19 22:27:42 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,7 @@ static	void	arg_scanner(char *fmt, t_mst *args)
 			x += check_mod(fmt, x, args, i2);
 			args->id[i2] = check_ids(fmt[x]);
 			args->n_chars[i2] = x - i;
-			if (args->id[i2] == -1)
-			{
-				args->n_chars[i2]--;
-				x--;
-			}
+			(args->id[i2] == -1) ? args->n_chars[i2]--, x-- : 0 ;
 			i += args->n_chars[i2];
 			i2++;
 		}
