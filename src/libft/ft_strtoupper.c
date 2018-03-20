@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/15 01:45:26 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/18 20:55:59 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/20 15:13:01 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ void	ft_strtoupper(char **s)
 		else
 			tmp[i] = str[i];
 	}
+	free(*s);
 	*s = tmp;
 }

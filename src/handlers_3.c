@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/18 20:45:36 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/20 14:28:49 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/20 15:36:18 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,45 +121,45 @@ void	handle_mfw(t_mst *args, int i, char **s)
 	}
 }
 
-// void	handle_mfw(t_mst *args, int i, char **s)
-// {
-// 	int		len;
-// 	char	*s2;
-// 	char	*tmp;
-// 	int		i2;
+void	handle_mfw_oux(t_mst *args, int i, char **s)
+{
+	int		len;
+	char	*s2;
+	char	*tmp;
+	int		i2;
 
-// 	i2 = -1;
-// 	len = args->mfw[i] - (int)ft_strlen(*s);
-// 	if (len > 0)
-// 	{
-// 		s2 = ft_strnew(len);
-// 		if (args->zero[i] == 1 && args->minus[i] == 0)
-// 		{
-// 			while (++i2 < len)
-// 				s2[i2] = '0';
-// 			tmp = ft_strjoin(s2, *s);
-// 			free(*s);
-// 			free(s2);
-// 			*s = tmp;
-// 		}
-// 		else
-// 		{
-// 			while (++i2 < len)
-// 				s2[i2] = ' ';
-// 			if (args->minus[i] == 1)
-// 			{
-// 				tmp = ft_strjoin(*s, s2);
-// 				free(*s);
-// 				free(s2);
-// 				*s = tmp;
-// 			}
-// 			else
-// 			{
-// 				tmp = ft_strjoin(s2, *s);
-// 				free(*s);
-// 				free(s2);
-// 				*s = tmp;
-// 			}
-// 		}
-// 	}
-// }
+	i2 = -1;
+	len = args->mfw[i] - (int)ft_strlen(*s);
+	if (len > 0)
+	{
+		s2 = ft_strnew(len);
+		if (args->zero[i] == 1 && args->minus[i] == 0)
+		{
+			while (++i2 < len)
+				s2[i2] = '0';
+			tmp = ft_strjoin(s2, *s);
+			free(*s);
+			free(s2);
+			*s = tmp;
+		}
+		else
+		{
+			while (++i2 < len)
+				s2[i2] = ' ';
+			if (args->minus[i] == 1)
+			{
+				tmp = ft_strjoin(*s, s2);
+				free(*s);
+				free(s2);
+				*s = tmp;
+			}
+			else
+			{
+				tmp = ft_strjoin(s2, *s);
+				free(*s);
+				free(s2);
+				*s = tmp;
+			}
+		}
+	}
+}
