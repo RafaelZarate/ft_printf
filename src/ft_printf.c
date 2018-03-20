@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 22:12:29 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/19 22:22:26 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/19 22:25:49 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static	int		arg_handler(t_mst *args, va_list ap, int i, t_uni *d_type)
 	return (0);
 }
 
-static	void	arg_scanner(char *fmt, t_mst *args, int n)
+static	void	arg_scanner(char *fmt, t_mst *args)
 {
 	size_t	i;
 	int		x;
@@ -107,7 +107,7 @@ int				ft_printf(const char *fmt, ...)
 
 	c = 0;
 	c_a = count_args((char *)fmt);
-	struct_initializer(args, n);
+	struct_initializer(&args, c_a);
 	if (!fmt)
 		return (-1);
 	if (c_a == 0)
@@ -116,7 +116,7 @@ int				ft_printf(const char *fmt, ...)
 		return (ft_strlen(fmt));
 	}
 	va_start(ap, fmt);
-	arg_scanner((char *)fmt, &args, c_a);
+	arg_scanner((char *)fmt, &args);
 	c = printer(&args, ap, (char *)fmt, &d_type);
 	va_end(ap);
 	struct_finalizer(&args);
