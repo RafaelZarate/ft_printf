@@ -6,13 +6,13 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/18 20:45:36 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/18 20:52:42 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/19 17:50:46 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	handle_plus_i(t_mst *args, char **s, int len)
+void	handle_plus_i(t_mst *args, char **s, int len, int i)
 {
 	char	*tmp;
 	int		x;
@@ -23,9 +23,9 @@ void	handle_plus_i(t_mst *args, char **s, int len)
 		tmp = ft_strjoin("+", tmp);
 	else
 	{
-		if (args->zero[0] == 1)
+		if (args->zero[i] == 1)
 			tmp[0] = '+';
-		else
+		else if (args->zero[i] == 0)
 		{
 			while (!ft_isdigit(tmp[x]))
 				x++;
