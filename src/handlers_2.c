@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/18 20:19:23 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/19 22:42:41 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/19 22:43:56 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ int	handle_s(t_mst *args, int i, t_uni *d_type)
 	if (args->mod[i] == 0 && args->id[i] == 's')
 	{
 		s = d_type->s;
-		if (!s)
-			s = ft_strdup("(null)");
+		(!s) ? ft_strdup("(null)") : 0;
 	}
 	else if ((args->mod[i] == 0 && args->id[i] == 'S') ||
 			(args->mod[i] == 2 && args->id[i] == 's'))
