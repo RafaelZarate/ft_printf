@@ -6,12 +6,10 @@ CC = gcc
 
 #When compiling. you need to add your .a lib
 CFILES = src/ft_printf.c \
-        src/arg_scanner.c \
         src/scanners.c \
 		src/handlers_1.c \
 		src/handlers_2.c \
 		src/handlers_3.c \
-		src/arg_handler.c \
 		src/utilities_1.c
 
 #These options are here in case the lib needs to be recompiled.

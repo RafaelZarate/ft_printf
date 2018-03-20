@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 21:41:23 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/19 22:12:22 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/19 22:17:22 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,6 @@ typedef	struct	s_mst
 
 /* MAIN FUNCTIONS */
 int				ft_printf(const char *format, ...);
-int				arg_handler(t_mst *args, va_list ap, int i, t_uni *d_type);
-void			arg_scanner(char *fmt, t_mst *args, int n);
 
 /* SCANNING FUNCTIONS */
 int				check_flags(char *fmt, int x, t_mst *args, int i2);
