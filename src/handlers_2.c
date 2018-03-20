@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/18 20:19:23 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/20 11:52:54 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/20 11:54:50 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	handle_s(t_mst *args, int i, t_uni *d_type)
 		s2 = d_type->wcts;
 	handle_mfw(args, i, &s);
 	if (args->mod[i] == 0 && args->id[i] == 's')
-		ft_putstr(s);
+		return (p_and_f(&s));
 	else if ((args->mod[i] == 0 && args->id[i] == 'S') ||
 			(args->mod[i] == 2 && args->id[i] == 's'))
 	{
@@ -36,8 +36,6 @@ int	handle_s(t_mst *args, int i, t_uni *d_type)
 			ft_putchar((char)s2[i]);
 		return (ft_strlen_wc(s2));
 	}
-	n = ft_strlen(s);
-	return (n);
 }
 
 int	handle_p(t_uni *d_type)
@@ -45,8 +43,7 @@ int	handle_p(t_uni *d_type)
 	char *s;
 
 	s = ft_strjoin("0x", uitoa_base(d_type->uimt, 16));
-	ft_putstr(s);
-	return (ft_strlen(s));
+	return (p_and_f(&s));
 }
 
 int	handle_per(t_mst *args, int i)
