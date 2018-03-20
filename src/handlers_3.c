@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/18 20:45:36 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/20 10:46:15 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/20 10:49:15 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,20 +93,23 @@ void	handle_mfw(t_mst *args, int i, char **s)
 	i2 = -1;
 	tmp = *s;
 	len = args->mfw[i] - (int)ft_strlen(tmp);
-	s2 = ft_strnew(len);
-	if (args->zero[i] == 1 && args->minus[i] == 0)
+	if (len > 0)
 	{
-		while (++i2 < len)
-			s2[i2] = '0';
-		*s = ft_strjoin(s2, tmp);
-	}
-	else
-	{
-		while (++i2 < len)
-			s2[i2] = ' ';
-		if (args->minus[i] == 1)
-			*s = ft_strjoin(tmp, s2);
-		else
+		s2 = ft_strnew(len);
+		if (args->zero[i] == 1 && args->minus[i] == 0)
+		{
+			while (++i2 < len)
+				s2[i2] = '0';
 			*s = ft_strjoin(s2, tmp);
+		}
+		else
+		{
+			while (++i2 < len)
+				s2[i2] = ' ';
+			if (args->minus[i] == 1)
+				*s = ft_strjoin(tmp, s2);
+			else
+				*s = ft_strjoin(s2, tmp);
+		}
 	}
 }
