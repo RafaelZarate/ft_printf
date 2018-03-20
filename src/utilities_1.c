@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:23:37 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/19 22:39:05 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/19 22:39:39 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	i_helper(t_mst *args, int i, char **s)
 	int neg;
 	int len;
 
-	neg = (s[0] == '-') ? 1 : 0;
+	neg = (*s[0] == '-') ? 1 : 0;
 	len = args->mfw[i] - (int)ft_strlen(*s);
 	handle_mfw_i(args, i, s, neg);
 	if (args->plus[i] == 1 && neg == 0)
