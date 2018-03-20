@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 21:41:23 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/19 22:11:27 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/19 22:12:22 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef	struct	s_mst
 	int 	*plus;
 	int 	*space;
 	int		*mfw;
+	int		*dot;
 	int		*precision;
 	int		*mod;
 	char	*id;
