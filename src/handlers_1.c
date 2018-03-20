@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:33:39 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/20 10:46:35 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/20 10:47:58 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	handle_u(t_mst *args, int i, t_uni *d_type)
 		s = uitoa_base(d_type->st, 10);
 	else if (args->mod[i] == 6)
 		s = uitoa_base(d_type->usi, 10);
-	handle_mfw(args, i, &s);
+	(args->mfw[i] - (int)ft_strlen(s) > 0) ? handle_mfw(args, i, &s) : 0;
 	ft_putstr(s);
 	n = ft_strlen(s);
 	free(s);
@@ -108,7 +108,7 @@ int	handle_x(t_mst *args, int i, t_uni *d_type)
 	if (args->hash[i] == 1)
 		s = ft_strjoin("0x", s);
 	(args->id[i] == 'X') ? ft_strtoupper(&s) : 0;
-	handle_mfw(args, i, &s);
+	(args->mfw[i] - (int)ft_strlen(s) > 0) ? handle_mfw(args, i, &s) : 0;
 	ft_putstr(s);
 	n = ft_strlen(s);
 	free(s);
@@ -131,7 +131,7 @@ int	handle_c(t_mst *args, int i, t_uni *d_type)
 	if ((args->mod[i] == 0 && args->id[i] == 'C') ||
 			(args->mod[i] == 2 && args->id[i] == 'c'))
 		s[0] = (char)d_type->wct;
-	handle_mfw(args, i, &s);
+	(args->mfw[i] - (int)ft_strlen(s) > 0) ? handle_mfw(args, i, &s) : 0;
 	ft_putstr(s);
 	n = ft_strlen(s);
 	return (n);
