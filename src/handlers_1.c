@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:33:39 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/20 11:55:48 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/20 11:58:56 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,7 @@ int	handle_o(t_mst *args, int i, t_uni *d_type)
 	if (args->hash[i] == 1 && s[0] != '0')
 		s = ft_strjoin("0", s);
 	handle_mfw(args, i, &s);
-	ft_putstr(s);
-	return (ft_strlen(s));
+	return (p_and_f(&s));
 }
 
 int	handle_u(t_mst *args, int i, t_uni *d_type)
@@ -80,10 +79,7 @@ int	handle_u(t_mst *args, int i, t_uni *d_type)
 	else if (args->mod[i] == 6)
 		s = uitoa_base(d_type->usi, 10);
 	handle_mfw(args, i, &s);
-	ft_putstr(s);
-	n = ft_strlen(s);
-	free(s);
-	return (n);
+	return (p_and_f(&s));
 }
 
 int	handle_x(t_mst *args, int i, t_uni *d_type)
@@ -109,10 +105,7 @@ int	handle_x(t_mst *args, int i, t_uni *d_type)
 		s = ft_strjoin("0x", s);
 	(args->id[i] == 'X') ? ft_strtoupper(&s) : 0;
 	handle_mfw(args, i, &s);
-	ft_putstr(s);
-	n = ft_strlen(s);
-	free(s);
-	return (n);
+	return (p_and_f(&s));
 }
 
 int	handle_c(t_mst *args, int i, t_uni *d_type)
