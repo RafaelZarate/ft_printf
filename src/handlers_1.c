@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:33:39 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/19 19:19:43 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/19 21:32:34 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ int	handle_i(t_mst *args, int i, t_uni *d_type)
 	else if (args->mod[i] == 1)
 		s = ft_itoa(d_type->schar);
 	else if (args->mod[i] == 2 || (args->id[i] == 'D'))
-		s = ft_itoa((long)d_type->imt);
+	{
+		ft_putnbr(d_type->lint);
+		return (n_digits(d_type->lint));
+	}
 	else if (args->mod[i] == 3)
 		s = ft_itoa(d_type->llint);
 	else if (args->mod[i] == 4)
@@ -34,20 +37,20 @@ int	handle_i(t_mst *args, int i, t_uni *d_type)
 		s = ft_itoa(d_type->sst);
 	else
 		return (0);
-	neg = (s[0] == '-') ? 1 : 0;
-	len = args->mfw[i] - (int)ft_strlen(s);
-	handle_mfw_i(args, i, &s, neg);
-	if (args->plus[i] == 1 && neg == 0)
-		handle_plus_i(args, &s, len, i);
-	else if (args->space[i] == 1)
-	{
-		if (args->mfw[i] == 0 && neg == 0)
-			s = ft_strjoin(" ", s);
-		else if (args->mfw[i] != 0 && neg == 0)
-			s[0] = ' ';
-	}
-	ft_putstr(s);
-	return (ft_strlen(s));
+	// neg = (s[0] == '-') ? 1 : 0;
+	// len = args->mfw[i] - (int)ft_strlen(s);
+	// handle_mfw_i(args, i, &s, neg);
+	// if (args->plus[i] == 1 && neg == 0)
+	// 	handle_plus_i(args, &s, len, i);
+	// else if (args->space[i] == 1)
+	// {
+	// 	if (args->mfw[i] == 0 && neg == 0)
+	// 		s = ft_strjoin(" ", s);
+	// 	else if (args->mfw[i] != 0 && neg == 0)
+	// 		s[0] = ' ';
+	// }
+	// ft_putstr(s);
+	// return (ft_strlen(s));
 }
 
 int	handle_o(t_mst *args, int i, t_uni *d_type)
