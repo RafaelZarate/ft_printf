@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:33:39 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/19 22:32:59 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/19 22:38:12 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 int	handle_i(t_mst *args, int i, t_uni *d_type)
 {
 	char	*s;
-	int		neg;
-	int		len;
 
 	if (args->mod[i] == 2 || (args->id[i] == 'D'))
 		s = ft_itoa(d_type->lint);
@@ -32,18 +30,7 @@ int	handle_i(t_mst *args, int i, t_uni *d_type)
 		s = ft_itoa(d_type->si);
 	else if (args->mod[i] == 6)
 		s = ft_itoa(d_type->sst);
-	neg = (s[0] == '-') ? 1 : 0;
-	len = args->mfw[i] - (int)ft_strlen(s);
-	handle_mfw_i(args, i, &s, neg);
-	if (args->plus[i] == 1 && neg == 0)
-		handle_plus_i(args, &s, len, i);
-	else if (args->space[i] == 1)
-	{
-		if (args->mfw[i] == 0 && neg == 0)
-			s = ft_strjoin(" ", s);
-		else if (args->mfw[i] != 0 && neg == 0)
-			s[0] = ' ';
-	}
+	i_helper(args, i, &s);
 	ft_putstr(s);
 	return (ft_strlen(s));
 }
