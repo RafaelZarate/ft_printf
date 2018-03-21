@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/18 20:19:23 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 15:05:20 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 15:11:35 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	handle_s(t_mst *args, int i, u_type *d_type)
 	return (p_and_f(&s));
 }
 
-int	handle_p(u_type *d_type)
+int	handle_p(t_mst *args, int i, u_type *d_type)
 {
 	char *s;
 	char *tmp;
@@ -47,6 +47,7 @@ int	handle_p(u_type *d_type)
 	tmp = ft_strjoin("0x", s);
 	free(s);
 	s = tmp;
+	handle_mfw_s(args, i, &s);
 	return (p_and_f(&s));
 }
 

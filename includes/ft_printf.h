@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 21:41:23 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 15:04:19 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 15:11:09 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int				handle_u(t_mst *args, int i, u_type *d_type);
 int				handle_x(t_mst *args, int i, u_type *d_type);
 int				handle_c(t_mst *args, int i, u_type *d_type);
 int				handle_s(t_mst *args, int i, u_type *d_type);
-int				handle_p(u_type *d_type);
+int				handle_p(t_mst *args, int i, u_type *d_type);
 int				handle_per(t_mst *args, int i);
 
 void			handle_mfw(t_mst *args, int i, char **s);

@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 22:12:29 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 15:00:57 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 15:11:12 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static	int		arg_handler(t_mst *args, va_list ap, int i, u_type *d_type)
 	else if (args->id[i] == '%' || args->id[i] == '%')
 		return (handle_per(args, i));
 	else if (args->id[i] == 'p')
-		return (handle_p(d_type));
+		return (handle_p(args, i, d_type));
 	return (0);
 }
 
