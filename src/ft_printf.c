@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 22:12:29 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 14:03:34 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 14:46:10 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static	int		arg_handler(t_mst *args, va_list ap, int i, t_uni *d_type)
 	else if (args->id[i] == 's')
 		d_type->s = va_arg(ap, char *);
 	 else if (args->id[i] == 'S')
-	 	d_type->s = va_arg(ap, wchar_t *)	;
+	 	d_type->wcts = va_arg(ap, wchar_t *)	;
 	if (args->id[i] == 'c' || args->id[i] == 'C')
 		return (handle_c(args, i, d_type));
 	else if (args->id[i] == 's' || args->id[i] == 'S')
@@ -113,6 +113,7 @@ int				ft_printf(const char *fmt, ...)
 	if (c_a == 0)
 	{
 		ft_putstr(fmt);
+		struct_finalizer(&args);
 		return (ft_strlen(fmt));
 	}
 	va_start(ap, fmt);
