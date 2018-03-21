@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:33:39 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/20 15:36:12 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/20 22:53:10 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,10 +126,10 @@ int	handle_c(t_mst *args, int i, t_uni *d_type)
 	}
 	s = ft_strnew(1);
 	if (args->mod[i] == 0 && args->id[i] == 'c')
-		s[0] = d_type->c;
+		s = ft_strdup("d_type->c");
 	if ((args->mod[i] == 0 && args->id[i] == 'C') ||
 			(args->mod[i] == 2 && args->id[i] == 'c'))
 		s[0] = (char)d_type->wct;
-	handle_mfw(args, i, &s);
+	handle_mfw_s(args, i, &s);
 	return (p_and_f(&s));
 }

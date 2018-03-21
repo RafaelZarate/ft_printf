@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/18 20:19:23 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/20 22:11:29 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/20 22:28:29 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	handle_s(t_mst *args, int i, t_uni *d_type)
 	{
 		while (++i2 < (int)ft_strlen_wc(s2))
 			ft_putchar((char)s2[i]);
+		free(s);
 		return (ft_strlen_wc(s2));
 	}
 	if (!d_type->s)
@@ -40,10 +41,7 @@ int	handle_s(t_mst *args, int i, t_uni *d_type)
 		free(s);
 		return (n);
 	}
-	ft_putstr(s);
-	int n = ft_strlen(s);
-	free(s);
-	return (n);
+	return (p_and_f(&s));
 }
 
 int	handle_p(t_uni *d_type)
