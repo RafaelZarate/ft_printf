@@ -6,13 +6,13 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 22:12:29 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 14:46:10 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 15:00:57 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static	int		arg_handler(t_mst *args, va_list ap, int i, t_uni *d_type)
+static	int		arg_handler(t_mst *args, va_list ap, int i, u_type *d_type)
 {
 	if (args->id[i] == 'i' || args->id[i] == 'd' || args->id[i] == 'D' ||
 			args->id[i] == 'c' || args->id[i] == 'C')
@@ -71,7 +71,7 @@ static	void	arg_scanner(char *fmt, t_mst *args)
 	}
 }
 
-static	int		printer(t_mst *args, va_list ap, char *fmt, t_uni *d_type)
+static	int		printer(t_mst *args, va_list ap, char *fmt, u_type *d_type)
 {
 	int i;
 	int	i2;
@@ -103,7 +103,7 @@ int				ft_printf(const char *fmt, ...)
 	t_mst	args;
 	int		c_a;
 	int		c;
-	t_uni	d_type;
+	u_type	d_type;
 
 	c = 0;
 	c_a = count_args((char *)fmt);

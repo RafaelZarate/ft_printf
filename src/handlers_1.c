@@ -6,13 +6,13 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:33:39 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/20 22:58:26 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 15:01:17 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	handle_i(t_mst *args, int i, t_uni *d_type)
+int	handle_i(t_mst *args, int i, u_type *d_type)
 {
 	char	*s;
 
@@ -34,7 +34,7 @@ int	handle_i(t_mst *args, int i, t_uni *d_type)
 	return (p_and_f(&s));
 }
 
-int	handle_o(t_mst *args, int i, t_uni *d_type)
+int	handle_o(t_mst *args, int i, u_type *d_type)
 {
 	char	*s;
 	char	*tmp;
@@ -63,7 +63,7 @@ int	handle_o(t_mst *args, int i, t_uni *d_type)
 	return (p_and_f(&s));
 }
 
-int	handle_u(t_mst *args, int i, t_uni *d_type)
+int	handle_u(t_mst *args, int i, u_type *d_type)
 {
 	char	*s;
 
@@ -85,7 +85,7 @@ int	handle_u(t_mst *args, int i, t_uni *d_type)
 	return (p_and_f(&s));
 }
 
-int	handle_x(t_mst *args, int i, t_uni *d_type)
+int	handle_x(t_mst *args, int i, u_type *d_type)
 {
 	char	*s;
 	char	*tmp;
@@ -115,7 +115,7 @@ int	handle_x(t_mst *args, int i, t_uni *d_type)
 	return (p_and_f(&s));
 }
 
-int	handle_c(t_mst *args, int i, t_uni *d_type)
+int	handle_c(t_mst *args, int i, u_type *d_type)
 {
 	char	*s;
 

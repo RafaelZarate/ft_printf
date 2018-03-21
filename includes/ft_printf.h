@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 21:41:23 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 01:00:35 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 15:02:37 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef	union	u_mst
 	wchar_t						wct;
 	wchar_t						*wcts;
 	void						*p;
-}				t_uni;
+}				u_type;
 
 typedef	struct	s_mst
 {
@@ -73,13 +73,13 @@ char			check_ids(char c);
 /*
 ** HANDLING
 */
-int				handle_i(t_mst *args, int i, t_uni *d_type);
-int				handle_o(t_mst *args, int i, t_uni *d_type);
-int				handle_u(t_mst *args, int i, t_uni *d_type);
-int				handle_x(t_mst *args, int i, t_uni *d_type);
-int				handle_c(t_mst *args, int i, t_uni *d_type);
-int				handle_s(t_mst *args, int i, t_uni *d_type);
-int				handle_p(t_uni *d_type);
+int				handle_i(t_mst *args, int i, u_type *d_type);
+int				handle_o(t_mst *args, int i, u_type *d_type);
+int				handle_u(t_mst *args, int i, u_type *d_type);
+int				handle_x(t_mst *args, int i, u_type *d_type);
+int				handle_c(t_mst *args, int i, u_type *d_type);
+int				handle_s(t_mst *args, int i, u_type *d_type);
+int				handle_p(u_type *d_type);
 int				handle_per(t_mst *args, int i);
 
 void			handle_mfw(t_mst *args, int i, char **s);
