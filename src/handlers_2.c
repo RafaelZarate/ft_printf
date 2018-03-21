@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/18 20:19:23 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/20 14:43:07 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/20 22:11:29 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ int	handle_s(t_mst *args, int i, t_uni *d_type)
 	int		i2;
 
 	i2 = -1;
-	s = d_type->s;
+	s = ft_strdup(d_type->s);
 	if (args->mod[i] == 0 && args->id[i] == 's')
 		(!d_type->s) ? s = ft_strdup("(null)") : 0;
 	else if ((args->mod[i] == 0 && args->id[i] == 'S') ||
 			(args->mod[i] == 2 && args->id[i] == 's'))
 		s2 = d_type->wcts;
-	handle_mfw(args, i, &s);
+	handle_mfw_s(args, i, &s);
 	if ((args->mod[i] == 0 && args->id[i] == 'S') ||
 			(args->mod[i] == 2 && args->id[i] == 's'))
 	{
@@ -41,7 +41,9 @@ int	handle_s(t_mst *args, int i, t_uni *d_type)
 		return (n);
 	}
 	ft_putstr(s);
-	return (ft_strlen(s));
+	int n = ft_strlen(s);
+	free(s);
+	return (n);
 }
 
 int	handle_p(t_uni *d_type)
