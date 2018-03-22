@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/18 20:45:36 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 21:07:34 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 21:45:40 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,20 +116,14 @@ void	handle_mfw_oux(t_mst *args, int i, char **s)
 			while (++i2 < len)
 				s2[i2] = '0';
 			if (args->id[i] == 'x' && args->hash[i] == 1)
-			{
-				s2[1] = 'x';
-				(*s)[1] = '0';
-			}
+				switch_xo(s, &s2);
 			*s = ft_strjoinf(&s2, s, 3);
 		}
 		else
 		{
 			while (++i2 < len)
 				s2[i2] = ' ';
-			if (args->minus[i] == 1)
-				*s = ft_strjoinf(s, &s2, 3);
-			else
-				*s = ft_strjoinf(&s2, s, 3);
+			mfw_oux_helper(args, s, &s2, i);
 		}
 	}
 }

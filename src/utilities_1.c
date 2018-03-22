@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:23:37 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 20:51:33 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 21:43:30 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,25 +95,8 @@ void	i_helper(t_mst *args, int i, char **s)
 	}
 }
 
-int		p_and_f(char **s)
+void	switch_xo(char **s, char **s2)
 {
-	int	len;
-	
-	len = ft_strlen(*s);
-	ft_putstr(*s);
-	ft_strdel(s);
-	return (len);
-}
-
-int		check_valid(t_mst *args, int c_a)
-{
-	int i;
-
-	i = -1;
-	while (++i < c_a)
-	{
-		if (args->id[i] == -1)
-			return (0);
-	}
-	return (1);
+	(*s2)[1] = 'x';
+	(*s)[1] = '0';
 }

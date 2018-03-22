@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 21:41:23 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 20:51:51 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 21:44:42 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,7 @@ void			struct_finalizer(t_mst *args);
 void			i_helper(t_mst *args, int i, char **s);
 int				p_and_f(char **s);
 int				check_valid(t_mst *args, int c_a);
+void			switch_xo(char **s, char **s2);
+void			mfw_oux_helper(t_mst *args, char **s, char **s2, int i);
 
 #endif

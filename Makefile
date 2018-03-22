@@ -10,7 +10,8 @@ CFILES = src/ft_printf.c \
 		src/handlers_1.c \
 		src/handlers_2.c \
 		src/handlers_3.c \
-		src/utilities_1.c
+		src/utilities_1.c \
+		src/utilities_2.c
 
 #These options are here in case the lib needs to be recompiled.
 #LIBM, LIBC, LIBF will run rules re, clean and fclean inside the libft folder
