@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/21 21:16:55 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 22:30:43 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 23:16:29 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,11 @@ void	mfw_oux_helper(t_mst *args, char **s, char **s2, int i)
 		*s = ft_strjoinf(s, s2, 3);
 	else
 		*s = ft_strjoinf(s2, s, 3);
+}
+
+void	check_flags(int *x, char *fmt)
+{
+	while (fmt[x] && (fmt[x] == '#' || fmt[x] == '0' || fmt[x] == '-' ||
+		fmt[x] == '+' || fmt[x] == ' '))
+		*x++;
 }
