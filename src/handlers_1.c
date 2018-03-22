@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:33:39 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 15:01:17 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 16:57:13 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int	handle_i(t_mst *args, int i, u_type *d_type)
 	else if (args->mod[i] == 4)
 		s = ft_itoa(d_type->imt);
 	else if (args->mod[i] == 5)
-		s = ft_itoa(d_type->si);
-	else if (args->mod[i] == 6)
 		s = ft_itoa(d_type->sst);
+	else if (args->mod[i] == 6)
+		s = ft_itoa(d_type->si);
 	i_helper(args, i, &s);
 	return (p_and_f(&s));
 }
@@ -104,7 +104,7 @@ int	handle_x(t_mst *args, int i, u_type *d_type)
 		s = uitoa_base(d_type->st, 16);
 	else if (args->mod[i] == 6)
 		s = uitoa_base(d_type->usi, 16);
-	if (args->hash[i] == 1)
+	if (args->hash[i] == 1 && s[0] != '0')
 	{
 		tmp = ft_strjoin("0x", s);
 		free(s);

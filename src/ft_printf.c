@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 22:12:29 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 15:11:12 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 17:15:08 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static	void	arg_scanner(char *fmt, t_mst *args)
 
 	i = -1;
 	i2 = 0;
-	while (++i < ft_strlen(fmt) - 1)
+	while (++i < ft_strlen(fmt))
 	{
 		if (fmt[i] == '%')
 		{
@@ -61,10 +61,11 @@ static	void	arg_scanner(char *fmt, t_mst *args)
 			x += check_mfw(fmt, x, args, i2);
 			x += check_precision(fmt, x, args, i2);
 			x += check_mod(fmt, x, args, i2);
-			args->id[i2] = check_ids(fmt[x]);
+			if (fmt[x])
+				args->id[i2] = check_ids(fmt[x]);
 			args->n_chars[i2] = x - i;
-			(args->id[i2] == -1) ? args->n_chars[i2]-- : 0;
-			(args->id[i2] == -1) ? x-- : 0;
+			(args->id[i2] == -1) ? ft_putstr_fd("Error parsing args", 2) : 0;
+			(args->id[i2] == -1) ? exit(1) : 0;
 			i += args->n_chars[i2];
 			i2++;
 		}
@@ -106,10 +107,10 @@ int				ft_printf(const char *fmt, ...)
 	u_type	d_type;
 
 	c = 0;
+	if (!fmt || !fmt[0])
+		return (0);
 	c_a = count_args((char *)fmt);
 	struct_initializer(&args, c_a);
-	if (!fmt)
-		return (-1);
 	if (c_a == 0)
 	{
 		ft_putstr(fmt);

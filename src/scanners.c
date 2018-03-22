@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:19:41 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/20 15:02:57 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 17:12:18 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int		check_flags(char *fmt, int x, t_mst *args, int i2)
 	int	x2;
 
 	x2 = 0;
-	while (fmt[x] == '#' || fmt[x] == '0' || fmt[x] == '-' ||
-			fmt[x] == '+' || fmt[x] == ' ')
+	while (fmt[x] && (fmt[x] == '#' || fmt[x] == '0' || fmt[x] == '-' ||
+			fmt[x] == '+' || fmt[x] == ' '))
 	{
 		if (fmt[x] == '#')
 			args->hash[i2] = 1;
@@ -42,7 +42,7 @@ int		check_mfw(char *fmt, int x, t_mst *args, int i2)
 	char	*tmp;
 
 	x2 = 0;
-	while (ft_isdigit(fmt[x]))
+	while (fmt[x] && ft_isdigit(fmt[x]))
 	{
 		x2++;
 		x++;
@@ -64,12 +64,12 @@ int		check_precision(char *fmt, int x, t_mst *args, int i2)
 	char	*tmp;
 
 	x2 = 0;
-	if (fmt[x] == '.')
+	if (fmt[x] && fmt[x] == '.')
 	{
 		args->dot[i2] = 1;
 		x++;
 	}
-	while (ft_isdigit(fmt[x]))
+	while (fmt[x] && ft_isdigit(fmt[x]))
 	{
 		x2++;
 		x++;
@@ -90,23 +90,23 @@ int		check_mod(char *fmt, int x, t_mst *args, int i2)
 	int	r;
 
 	r = 1;
-	if (fmt[x] == 'h' && fmt[x + 1] == 'h')
+	if (fmt[x] && (fmt[x] == 'h' && fmt[x + 1] == 'h'))
 	{
 		args->mod[i2] = 1;
 		r++;
 	}
-	else if (fmt[x] == 'h')
+	else if (fmt[x] && fmt[x] == 'h')
 		args->mod[i2] = 6;
-	else if (fmt[x] == 'l' && fmt[x + 1] == 'l')
+	else if (fmt[x] && (fmt[x] == 'l' && fmt[x + 1] == 'l'))
 	{
 		args->mod[i2] = 3;
 		r++;
 	}
-	else if (fmt[x] == 'l')
+	else if (fmt[x] && (fmt[x] == 'l'))
 		args->mod[i2] = 2;
-	else if (fmt[x] == 'j')
+	else if (fmt[x] && fmt[x] == 'j')
 		args->mod[i2] = 4;
-	else if (fmt[x] == 'z')
+	else if (fmt[x] && fmt[x] == 'z')
 		args->mod[i2] = 5;
 	else
 		r = 0;
