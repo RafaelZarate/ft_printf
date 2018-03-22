@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/21 21:16:55 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 21:46:13 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 22:30:43 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		check_valid(t_mst *args, int c_a)
 	i = -1;
 	while (++i < c_a)
 	{
-		if (args->id[i] == -1)
+		if (args->id[i] == -1 || args->dot[i] == 1)
 			return (0);
 	}
 	return (1);

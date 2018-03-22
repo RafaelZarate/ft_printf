@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 22:12:29 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 22:00:15 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 22:30:44 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static	void	arg_scanner(char *fmt, t_mst *args)
 			(fmt[x]) ? args->id[i2] = check_ids(fmt[x]) : 0;
 			args->n_chars[i2] = x - i;
 			(args->id[i2] == -1) ? ft_putstr("Error parsing args") : 0;
-			if (args->id[i2] == -1)
+			if (args->id[i2] == -1 || args->dot[i2] == 1)
 				return ;
 			i += args->n_chars[i2];
 			i2++;
