@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:23:37 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 23:15:37 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 23:21:07 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		count_args(char *fmt)
 		if (fmt[x] == '%')
 		{
 			x++;
-			check_flags(&x, fmt);
+			check_flags_ca(&x, fmt);
 			while (fmt[x] && ft_isdigit(fmt[x]))
 				x++;
 			(fmt[x] && fmt[x] == '.') ? x++ : 0;
