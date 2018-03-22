@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/18 20:45:36 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 21:06:00 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 21:07:34 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	handle_plus_i(t_mst *args, char **s, int len, int i)
 	x = 0;
 	if (len < 1)
 	{
-		*s = ft_strjoin("+", *s);
+		tmp = ft_strjoin("+", *s);
 		free(*s);
 		*s = tmp;
 	}
@@ -85,7 +85,6 @@ void	handle_mfw_s(t_mst *args, int i, char **s)
 	int		len;
 	char	*s2;
 	int		i2;
-	char	*tmp;
 
 	i2 = -1;
 	len = args->mfw[i] - (int)ft_strlen(*s);
