@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 22:12:29 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 22:30:44 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 23:39:50 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,18 +116,15 @@ int				ft_printf(const char *fmt, ...)
 		return (0);
 	c_a = count_args((char *)fmt);
 	struct_initializer(&args, c_a);
-	if (c_a == 0)
-	{
-		ft_putstr(fmt);
-		struct_finalizer(&args);
-		return (ft_strlen(fmt));
-	}
 	va_start(ap, fmt);
 	arg_scanner((char *)fmt, &args);
 	if (!check_valid(&args, c_a))
+	{
+		struct_finalizer(&args);
 		return (0);
+	}
 	c = printer(&args, ap, (char *)fmt, &d_type);
-	va_end(ap);
 	struct_finalizer(&args);
+	va_end(ap);
 	return (c);
 }
