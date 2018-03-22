@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/21 21:16:55 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 23:21:50 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 23:22:51 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ void	mfw_oux_helper(t_mst *args, char **s, char **s2, int i)
 void	check_flags_ca(int *x, char *fmt)
 {
 	while (fmt[*x] && (fmt[*x] == '#' || fmt[*x] == '0' || fmt[*x] == '-' ||
-		fmt[*x] == '+' || fmt*[x] == ' '))
+		fmt[*x] == '+' || fmt[*x] == ' '))
 		*x++;
 }
