@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 21:41:23 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 23:16:06 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 23:17:50 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,6 @@ int				p_and_f(char **s);
 int				check_valid(t_mst *args, int c_a);
 void			switch_xo(char **s, char **s2);
 void			mfw_oux_helper(t_mst *args, char **s, char **s2, int i);
-void			check_flags(int *x, char *fmt);
+void			check_flags_ca(int *x, char *fmt);
 
 #endif
