@@ -6,13 +6,13 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:33:39 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 21:21:38 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 21:59:16 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	handle_i(t_mst *args, int i, u_type *d_type)
+int	handle_i(t_mst *args, int i, t_type *d_type)
 {
 	char	*s;
 
@@ -34,7 +34,7 @@ int	handle_i(t_mst *args, int i, u_type *d_type)
 	return (p_and_f(&s));
 }
 
-int	handle_o(t_mst *args, int i, u_type *d_type)
+int	handle_o(t_mst *args, int i, t_type *d_type)
 {
 	char	*s;
 	char	*tmp;
@@ -63,7 +63,7 @@ int	handle_o(t_mst *args, int i, u_type *d_type)
 	return (p_and_f(&s));
 }
 
-int	handle_u(t_mst *args, int i, u_type *d_type)
+int	handle_u(t_mst *args, int i, t_type *d_type)
 {
 	char	*s;
 
@@ -85,12 +85,11 @@ int	handle_u(t_mst *args, int i, u_type *d_type)
 	return (p_and_f(&s));
 }
 
-int	handle_x(t_mst *args, int i, u_type *d_type)
+int	handle_x(t_mst *args, int i, t_type *d_type)
 {
 	char	*s;
 	char	*ox;
 
-	ox = ft_strdup("0x");
 	if (args->mod[i] == 0)
 		s = uitoa_base(d_type->ui, 16);
 	else if (args->mod[i] == 1)
@@ -106,13 +105,16 @@ int	handle_x(t_mst *args, int i, u_type *d_type)
 	else if (args->mod[i] == 6)
 		s = uitoa_base(d_type->usi, 16);
 	if (args->hash[i] == 1 && s[0] != '0')
+	{
+		ox = ft_strdup("0x");
 		s = ft_strjoinf(&ox, &s, 3);
+	}
 	(args->id[i] == 'X') ? ft_strtoupper(&s) : 0;
 	handle_mfw_oux(args, i, &s);
 	return (p_and_f(&s));
 }
 
-int	handle_c(t_mst *args, int i, u_type *d_type)
+int	handle_c(t_mst *args, int i, t_type *d_type)
 {
 	char	*s;
 

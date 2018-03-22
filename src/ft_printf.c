@@ -6,13 +6,13 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 22:12:29 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 20:17:11 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 22:00:15 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static	int		arg_casting(t_mst *args, int i, u_type *d_type)
+static	int		arg_casting(t_mst *args, int i, t_type *d_type)
 {
 	if (args->id[i] == 'c' || args->id[i] == 'C')
 		return (handle_c(args, i, d_type));
@@ -33,7 +33,7 @@ static	int		arg_casting(t_mst *args, int i, u_type *d_type)
 	return (0);
 }
 
-static	int		arg_handler(t_mst *args, va_list ap, int i, u_type *d_type)
+static	int		arg_handler(t_mst *args, va_list ap, int i, t_type *d_type)
 {
 	if (args->id[i] == 'i' || args->id[i] == 'd' || args->id[i] == 'D' ||
 			args->id[i] == 'c' || args->id[i] == 'C')
@@ -77,7 +77,7 @@ static	void	arg_scanner(char *fmt, t_mst *args)
 	}
 }
 
-static	int		printer(t_mst *args, va_list ap, char *fmt, u_type *d_type)
+static	int		printer(t_mst *args, va_list ap, char *fmt, t_type *d_type)
 {
 	int i;
 	int	i2;
@@ -109,7 +109,7 @@ int				ft_printf(const char *fmt, ...)
 	t_mst	args;
 	int		c_a;
 	int		c;
-	u_type	d_type;
+	t_type	d_type;
 
 	c = 0;
 	if (!fmt || !fmt[0])

@@ -6,13 +6,13 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/18 20:19:23 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 15:11:35 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 21:59:26 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	handle_s(t_mst *args, int i, u_type *d_type)
+int	handle_s(t_mst *args, int i, t_type *d_type)
 {
 	char	*s;
 	wchar_t	*s2;
@@ -38,7 +38,7 @@ int	handle_s(t_mst *args, int i, u_type *d_type)
 	return (p_and_f(&s));
 }
 
-int	handle_p(t_mst *args, int i, u_type *d_type)
+int	handle_p(t_mst *args, int i, t_type *d_type)
 {
 	char *s;
 	char *tmp;
