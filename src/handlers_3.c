@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/18 20:45:36 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 20:50:43 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 21:06:00 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	handle_plus_i(t_mst *args, char **s, int len, int i)
 	x = 0;
 	if (len < 1)
 	{
-		tmp = ft_strjoin("+", *s);
+		*s = ft_strjoin("+", *s);
 		free(*s);
 		*s = tmp;
 	}
@@ -53,7 +53,6 @@ void	handle_space_i(t_mst *args, char **s, int i)
 
 void	handle_mfw_i(t_mst *args, int i, char **s, int neg)
 {
-	char	*tmp;
 	char	*s2;
 	int		i2;
 
@@ -67,23 +66,16 @@ void	handle_mfw_i(t_mst *args, int i, char **s, int neg)
 				s2[i2] = '0';
 			(neg == 1) ? (s2)[0] = '-' : 0;
 			(neg == 1) ? (*s)[0] = '0' : 0;
-			tmp = ft_strjoinf(&s2, s, 3);
-			*s = tmp;
+			*s = ft_strjoinf(&s2, s, 3);
 		}
 		else
 		{
 			while (++i2 < args->mfw[i] - (int)ft_strlen(*s))
 				s2[i2] = ' ';
 			if (args->minus[i] == 1)
-			{
-				tmp = ft_strjoinf(s, &s2, 3);
-				*s = tmp;
-			}
+				*s = ft_strjoinf(s, &s2, 3);
 			else
-			{
-				tmp = ft_strjoinf(&s2, s, 3);
-				*s = tmp;
-			}
+				*s = ft_strjoinf(&s2, s, 3);
 		}
 	}
 }
@@ -103,15 +95,9 @@ void	handle_mfw_s(t_mst *args, int i, char **s)
 		while (++i2 < len)
 			s2[i2] = ' ';
 		if (args->minus[i] == 1)
-		{
-			tmp = ft_strjoinf(s, &s2, 3);
-			*s = tmp;
-		}
+			*s = ft_strjoinf(s, &s2, 3);
 		else
-		{
-			tmp = ft_strjoinf(&s2, s, 3);
-			*s = tmp;
-		}
+			*s = ft_strjoinf(&s2, s, 3);
 	}
 }
 
