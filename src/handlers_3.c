@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/18 20:45:36 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 20:31:59 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 20:50:43 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,6 @@ void	handle_mfw_oux(t_mst *args, int i, char **s)
 {
 	int		len;
 	char	*s2;
-	char	*tmp;
 	int		i2;
 
 	i2 = -1;
@@ -131,31 +130,21 @@ void	handle_mfw_oux(t_mst *args, int i, char **s)
 		{
 			while (++i2 < len)
 				s2[i2] = '0';
-			if (args->id[i] == 'x')
+			if (args->id[i] == 'x' && args->hash[i] == 1)
 			{
-				if (args->hash[i] == 1)
-				{
-					s2[1] = 'x';
-					(*s)[1] = '0';
-				}
+				s2[1] = 'x';
+				(*s)[1] = '0';
 			}
-			tmp = ft_strjoinf(&s2, s, 3);
-			*s = tmp;
+			*s = ft_strjoinf(&s2, s, 3);
 		}
 		else
 		{
 			while (++i2 < len)
 				s2[i2] = ' ';
 			if (args->minus[i] == 1)
-			{
-				tmp = ft_strjoinf(s, &s2, 3);
-				*s = tmp;
-			}
+				*s = ft_strjoinf(s, &s2, 3);
 			else
-			{
-				tmp = ft_strjoinf(&s2, s, 3);
-				*s = tmp;
-			}
+				*s = ft_strjoinf(&s2, s, 3);
 		}
 	}
 }
