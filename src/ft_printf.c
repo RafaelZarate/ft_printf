@@ -6,25 +6,14 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 22:12:29 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 17:28:06 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 20:17:11 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static	int		arg_handler(t_mst *args, va_list ap, int i, u_type *d_type)
+static	int		arg_casting(t_mst *args, int i, u_type *d_type)
 {
-	if (args->id[i] == 'i' || args->id[i] == 'd' || args->id[i] == 'D' ||
-			args->id[i] == 'c' || args->id[i] == 'C')
-		d_type->imt = va_arg(ap, intmax_t);
-	else if (args->id[i] == 'o' || args->id[i] == 'O' || args->id[i] == 'u' ||
-			args->id[i] == 'U' || args->id[i] == 'x' || args->id[i] == 'X' ||
-			args->id[i] == 'C' || args->id[i] == 'p')
-		d_type->uimt = va_arg(ap, uintmax_t);
-	else if (args->id[i] == 's')
-		d_type->s = va_arg(ap, char *);
-	 else if (args->id[i] == 'S')
-	 	d_type->wcts = va_arg(ap, wchar_t *)	;
 	if (args->id[i] == 'c' || args->id[i] == 'C')
 		return (handle_c(args, i, d_type));
 	else if (args->id[i] == 's' || args->id[i] == 'S')
@@ -44,6 +33,22 @@ static	int		arg_handler(t_mst *args, va_list ap, int i, u_type *d_type)
 	return (0);
 }
 
+static	int		arg_handler(t_mst *args, va_list ap, int i, u_type *d_type)
+{
+	if (args->id[i] == 'i' || args->id[i] == 'd' || args->id[i] == 'D' ||
+			args->id[i] == 'c' || args->id[i] == 'C')
+		d_type->imt = va_arg(ap, intmax_t);
+	else if (args->id[i] == 'o' || args->id[i] == 'O' || args->id[i] == 'u' ||
+			args->id[i] == 'U' || args->id[i] == 'x' || args->id[i] == 'X' ||
+			args->id[i] == 'C' || args->id[i] == 'p')
+		d_type->uimt = va_arg(ap, uintmax_t);
+	else if (args->id[i] == 's')
+		d_type->s = va_arg(ap, char *);
+	else if (args->id[i] == 'S')
+		d_type->wcts = va_arg(ap, wchar_t *);
+	return (arg_casting(args, i, d_type));
+}
+
 static	void	arg_scanner(char *fmt, t_mst *args)
 {
 	size_t	i;
@@ -61,14 +66,11 @@ static	void	arg_scanner(char *fmt, t_mst *args)
 			x += check_mfw(fmt, x, args, i2);
 			x += check_precision(fmt, x, args, i2);
 			x += check_mod(fmt, x, args, i2);
-			if (fmt[x])
-				args->id[i2] = check_ids(fmt[x]);
+			(fmt[x]) ? args->id[i2] = check_ids(fmt[x]) : 0;
 			args->n_chars[i2] = x - i;
+			(args->id[i2] == -1) ? ft_putstr("Error parsing args") : 0;
 			if (args->id[i2] == -1)
-			{
-				ft_putstr("Error parsing args");
 				return ;
-			}
 			i += args->n_chars[i2];
 			i2++;
 		}
