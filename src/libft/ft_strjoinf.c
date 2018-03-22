@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/21 20:22:22 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 20:26:46 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 20:32:55 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ char	*ft_strjoinf(char **s1, char **s2, int i)
 		ft_strdel(s2);
 	else if (i == 3)
 	{
-		ft_strdel(*s1);
-		ft_strdel(*s2);
+		ft_strdel(s1);
+		ft_strdel(s2);
 	}
 	return (r);
 }
