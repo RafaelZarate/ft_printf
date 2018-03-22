@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/21 20:22:22 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 20:49:27 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 20:53:30 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 char	*ft_strjoinf(char **s1, char **s2, int i)
 {
 	char	*r;
-	char	*tmp;
 
 	if (!(*s1) || !(*s2))
 		return (NULL);
