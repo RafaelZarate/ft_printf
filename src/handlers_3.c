@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/18 20:45:36 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 16:49:49 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 20:29:04 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	handle_plus_i(t_mst *args, char **s, int len, int i)
 void	handle_space_i(t_mst *args, char **s, int i)
 {
 	char	*tmp;
-	
+
 	if (args->mfw[i] == 0)
 	{
 		tmp = ft_strjoin(" ", *s);
@@ -67,9 +67,7 @@ void	handle_mfw_i(t_mst *args, int i, char **s, int neg)
 				s2[i2] = '0';
 			(neg == 1) ? (s2)[0] = '-' : 0;
 			(neg == 1) ? (*s)[0] = '0' : 0;
-			tmp = ft_strjoin(s2, *s);
-			free(s2);
-			free(*s);
+			tmp = ft_strjoinf(s2, *s, 3);
 			*s = tmp;
 		}
 		else
@@ -78,47 +76,14 @@ void	handle_mfw_i(t_mst *args, int i, char **s, int neg)
 				s2[i2] = ' ';
 			if (args->minus[i] == 1)
 			{
-				tmp = ft_strjoin(*s, s2);
-				free(*s);
-				free(s2);
+				tmp = ft_strjoinf(*s, s2, 3);
 				*s = tmp;
 			}
 			else
 			{
-				tmp = ft_strjoin(s2, *s);
-				free(*s);
-				free(s2);
+				tmp = ft_strjoinf(s2, *s, 3);
 				*s = tmp;
 			}
-		}
-	}
-}
-
-void	handle_mfw(t_mst *args, int i, char **s)
-{
-	int		len;
-	char	*s2;
-	int		i2;
-
-	i2 = -1;
-	len = args->mfw[i] - (int)ft_strlen(*s);
-	if (len > 0)
-	{
-		s2 = ft_strnew(len);
-		if (args->zero[i] == 1 && args->minus[i] == 0)
-		{
-			while (++i2 < len)
-				s2[i2] = '0';
-			*s = ft_strjoin(s2, *s);
-			free(s2);
-		}
-		else
-		{
-			while (++i2 < len)
-				s2[i2] = ' ';
-			(args->minus[i] == 1) ? *s = ft_strjoin(*s, s2) : 0;
-			(args->minus[i] != 1) ? *s = ft_strjoin(s2, *s) : 0;
-			free(s2);
 		}
 	}
 }
@@ -128,7 +93,7 @@ void	handle_mfw_s(t_mst *args, int i, char **s)
 	int		len;
 	char	*s2;
 	int		i2;
-	char *tmp;
+	char	*tmp;
 
 	i2 = -1;
 	len = args->mfw[i] - (int)ft_strlen(*s);
@@ -139,16 +104,12 @@ void	handle_mfw_s(t_mst *args, int i, char **s)
 			s2[i2] = ' ';
 		if (args->minus[i] == 1)
 		{
-			tmp = ft_strjoin(*s, s2);
-			free(*s);
-			free(s2);
+			tmp = ft_strjoinf(*s, s2, 3);
 			*s = tmp;
 		}
 		else
 		{
-			tmp = ft_strjoin(s2, *s);
-			free(*s);
-			free(s2);
+			tmp = ft_strjoinf(s2, *s, 3);
 			*s = tmp;
 		}
 	}
@@ -178,9 +139,7 @@ void	handle_mfw_oux(t_mst *args, int i, char **s)
 					(*s)[1] = '0';
 				}
 			}
-			tmp = ft_strjoin(s2, *s);
-			free(*s);
-			free(s2);
+			tmp = ft_strjoinf(s2, *s, 3);
 			*s = tmp;
 		}
 		else
@@ -189,16 +148,12 @@ void	handle_mfw_oux(t_mst *args, int i, char **s)
 				s2[i2] = ' ';
 			if (args->minus[i] == 1)
 			{
-				tmp = ft_strjoin(*s, s2);
-				free(*s);
-				free(s2);
+				tmp = ft_strjoinf(*s, s2, 3);
 				*s = tmp;
 			}
 			else
 			{
-				tmp = ft_strjoin(s2, *s);
-				free(*s);
-				free(s2);
+				tmp = ft_strjoinf(s2, *s, 3);
 				*s = tmp;
 			}
 		}

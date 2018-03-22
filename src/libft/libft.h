@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/19 10:26:57 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/20 22:53:22 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 20:27:01 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int					ft_strequ(char const *s1, char const *s2);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
+char				*ft_strjoinf(char **s1, char **s2, int i);
 char				*ft_strtrim(char const *s);
 char				*ft_strtrimc(char const *s, char c);
 int					ft_countwords(char *s, char c);
