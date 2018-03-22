@@ -6,7 +6,7 @@
 /*   By: rzarate <rzarate@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 22:12:29 by rzarate           #+#    #+#             */
-/*   Updated: 2018/03/21 17:22:10 by rzarate          ###   ########.fr       */
+/*   Updated: 2018/03/21 17:28:06 by rzarate          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,11 @@ static	void	arg_scanner(char *fmt, t_mst *args)
 			if (fmt[x])
 				args->id[i2] = check_ids(fmt[x]);
 			args->n_chars[i2] = x - i;
-			(args->id[i2] == -1) ? ft_putstr("Error parsing args") : 0;
-			(args->id[i2] == -1) ? exit(1) : 0;
+			if (args->id[i2] == -1)
+			{
+				ft_putstr("Error parsing args");
+				return ;
+			}
 			i += args->n_chars[i2];
 			i2++;
 		}
@@ -119,6 +122,8 @@ int				ft_printf(const char *fmt, ...)
 	}
 	va_start(ap, fmt);
 	arg_scanner((char *)fmt, &args);
+	if (!check_valid(&args, c_a))
+		return (0);
 	c = printer(&args, ap, (char *)fmt, &d_type);
 	va_end(ap);
 	struct_finalizer(&args);
